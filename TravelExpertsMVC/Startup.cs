@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using TravelExpertsMVC.Data;
+using TravelExpertsMVC.Data;
 
 namespace TravelExpertsMVC
 {
@@ -25,17 +25,17 @@ namespace TravelExpertsMVC
 		public IConfiguration Configuration { get; }
 
 		// This method gets called by the runtime. Use this method to add services to the container.
-		//public void ConfigureServices(IServiceCollection services)
-		//{
-		//	services.AddDbContext<ApplicationDbContext>(options =>
-		//		options.UseSqlServer(
-		//			Configuration.GetConnectionString("DefaultConnection")));
-		//	services.AddDatabaseDeveloperPageExceptionFilter();
+		public void ConfigureServices(IServiceCollection services)
+		{
+			services.AddDbContext<TravelExpertsContext>(options =>
+				options.UseSqlServer(
+					Configuration.GetConnectionString("DefaultConnection")));
+			services.AddDatabaseDeveloperPageExceptionFilter();
 
-		//	services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-		//		.AddEntityFrameworkStores<ApplicationDbContext>();
-		//	services.AddControllersWithViews();
-		//}
+			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+				.AddEntityFrameworkStores<TravelExpertsContext>();
+			services.AddControllersWithViews();
+		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
