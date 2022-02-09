@@ -1,0 +1,188 @@
+/* index.css */
+/* Main CSS file used across entire site */
+/* Author: Justin Molnar */
+/* CPRG 207 - Threaded Project */
+/* 2021-11-30 */
+
+:root {
+    /* Defult Palette */
+
+    --charcoal: #264653ff;
+    --green: #2a9d8fff;
+    --yellow: #e9c46aff;
+    --orange: #f4a261ff;
+    --orange-accent: #f5ab71;
+    --sienna: #e76f51ff;
+    --sienna-trans: #e76f51e6;
+
+    /* Temparary way to change colors, Comment out defult and Uncomment any other group of colors */
+
+    /* Christmas Tree */
+
+    /* --charcoal:  #418052;
+    --green: #CFCFCF;
+    --yellow: #e48787;
+    --orange: #FFFFFF;
+    --orange-accent: #84D2EF;
+    --orange-trans: #FFFFFFE6;
+    --sienna: #C7FBFF;
+    --sienna-trans: #C7FBFFE6; */
+
+    /* Dark Theme Mono */
+
+    /* --charcoal: #494949;
+    --green: #a1a1a1;
+    --yellow: #d8d8d8;
+    --orange: #c2c2c2;
+    --orange-accent: #969696;
+    --orange-trans: #5a5a5ae6;
+    --sienna: #5a5a5a;
+    --sienna-trans: #c2c2c2e6; */
+
+    /* Blue */
+
+    /* --charcoal: #2c244b;
+    --green: #574C75;
+    --yellow: #7b9e99;
+    --orange: #dab174;
+    --orange-accent: #EF8E5D;
+    --orange-trans: #dab174e6;
+    --sienna: #d6415f;
+    --sienna-trans: #d6415fe6;  */
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+
+    /* Text and <h> color vars */
+    --h-tag-color: var(--charcoal);
+    --text-color: black;
+}
+
+/* Defult values/Mobile */
+
+body {
+    margin: 0;
+    color:var(--text-color);
+    background-color: var(--yellow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+    color: var(--h-tag-color);
+    text-align: center;
+    padding: .5em 0em .5em 0em;
+    font-weight: 800;
+}
+
+
+/* 90% of content on the website is in .main-content and .grid, used for congruient nice looking text,
+and responsiveness.  This section makes eveything below a certain screen-size display in a grid as a row,
+below is a media query to make into column on larger screens */
+
+.main-content {
+    margin: auto;
+    display: grid;
+    grid-auto-flow: row;
+    line-height: 1.6;
+    max-width: 80%;
+    gap: 1em;
+    padding-bottom: 3em;
+    min-height: 80vh;
+}
+
+.main-content .grid {
+    max-width: 100%;
+    margin: auto;
+}
+
+/* make images a bit more responsive */
+.grid__img {
+    object-fit: cover; /* Crops image to certain size if screen is too small instead of just resizing */
+    max-height: 20em;
+    width:100%
+}
+
+.main-content a {
+    color: var(--green)
+}
+
+.push-down {
+    margin-top: 1em;
+}
+
+/* Button styling - used across several pages */
+.btn {
+	font-size: 0.9rem;
+	border-radius: 6px;
+	background-color: var(--green);
+	font-weight: 600;
+	color:var(--yellow);
+	transition: 0.3s;
+	cursor: pointer;
+    min-width: 8em;
+    min-height: 1.5em;
+}
+
+.btn:hover{
+	background-color: var(--charcoal);
+}
+
+/* Main Page Testimonial section */
+.testimonial {
+    background-color: var(--orange);
+    width: 80%;
+    margin: auto;
+    box-shadow: 10px 10px var(--sienna);
+}
+
+.textimonial-text {
+    background-color: var(--orange);
+    width: 25em;
+}
+
+.testimonial .testimonial-pic {
+
+    background-color: var(--charcoal);
+    width: 5em;
+    height: 5em;
+    border-radius:50%;
+    margin: 1em 2em !important;
+
+}
+
+.testimonial .main-content {
+    min-height: 0px;
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.testimonial .grid {
+    margin-top: 1em !important;
+    margin-bottom: 0px;
+}
+
+
+/* Everything above is defult for small screens (mobile first) and below is media querys to overwrite for larger screens */
+@media (min-width:55em) {
+
+	.main-content {
+		grid-auto-flow: column;
+		margin: auto;
+	}
+    
+    .main-content .grid {
+        max-width:40em;
+        margin:0 auto;
+    }
+    .grid__img {
+        width: 80%;
+        min-width: 10em;
+        max-height: 100%;
+    }
+
+    .testimonial .main-content {
+        grid-auto-flow: column;
+    }
+    
+}
+

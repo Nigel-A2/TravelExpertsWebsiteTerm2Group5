@@ -1,0 +1,169 @@
+/* headfoot.css */
+/* Styling of the header and footer used on every page */
+/* Author: Justin Molnar */
+/* CPRG 207 - Threaded Project */
+/* 2021-11-30 */
+
+
+/* Defult/Mobile */
+
+/* Header */
+
+/* Logo in Nav Bar */
+.logo {
+    max-height: 1.5em;
+    padding: .22em 0 .22em 5%;
+    margin: 0;
+    float:left
+
+}
+
+/* Stick to top of screen and styling for nav bar */
+nav {
+    background-color: var(--charcoal);
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    z-index: 2;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .22em;
+    flex-wrap: wrap;
+
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: .22em 0 .22em .5em;
+    width:63%;
+    align-items: center;
+    justify-content: center;
+    display:none; /* Don't display on mobile unless the below class .show overwrites */
+    flex-direction: column;
+    margin: auto;
+}
+
+/* Class added/removed if user clicks hamburger button in mobile view */
+.show {
+    display: flex;
+}
+
+
+nav li  {
+    display:inline-block;
+    padding: .22em 4%;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav li a {
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition:  0.3s;
+}
+
+nav a:hover {
+    color: var(--sienna);
+}
+.icon--head {
+    font-size: 1.3em;
+    padding:0;
+    margin: 0;
+    padding-right: .2em;
+ }
+
+ /* Button for responsive navigation bar, clicking the hambuger hides or shows the navigation on mobile */
+.hamburger {
+    background-color: transparent;
+    border: 0;
+    color: var(--orange);
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding-right: 10%;
+    display: block;
+    transition: 0.3s;
+ }
+
+.hamburger:focus {
+    outline: none;
+ }
+
+ .hamburger:hover {
+     color: var(--sienna);
+ }
+
+/* Footer */
+
+footer {
+    margin: auto;
+    display: grid;
+    grid-auto-flow: row;
+    line-height: 1.8;
+    background-color: var(--charcoal);
+    padding: .3em 15%;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+footer a {
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: var(--sienna);
+}
+
+footer .nav__link {
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+footer .nav__link:hover {
+    color: var(--sienna);
+}
+
+footer p {
+    margin: 0;
+}
+
+.icon--foot {
+    font-size: 2em;
+    padding: .2em .2em;
+}
+
+
+/* Desktop only */
+@media (min-width:55em) {
+    
+    footer {
+    grid-auto-flow: column;
+    margin: auto;
+    }
+
+    .hamburger {
+        display: none; /* Don't show hamburger if screen large enough */
+    }
+
+    /* Change navigation to row (from column) on large screens */
+    nav ul {
+        display:flex;
+        flex-direction: row;
+    }
+}
+

@@ -1,0 +1,168 @@
+/* carousel.css */
+/* Styling for hero image carousel/button */
+/* Author: Justin Molnar */
+/* CPRG 207 - Threaded Project */
+/* 2021-12-03 */
+
+
+/* Defult/Mobile */
+
+/* Hero Carousel */
+.carousel {
+    position: relative;
+    height: 800px;
+    width: 100%;
+}
+
+.carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Makes Image crop instead of scale down if screen size changes */
+}
+
+.carousel__track-container{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel__track {
+    padding:0px;
+    margin: 0px;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;  /* Smoothly scroll carousel */
+}
+
+.carousel__slide{
+    position: absolute;
+    top:0;
+    bottom:0;
+    width: 100%;
+}
+
+/* Buttons to scroll carousel left/right */
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, .3);
+    border: 0;
+    color: var(--orange);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.carousel__button:hover {
+    background: rgba(0,0,0,.75);
+}
+
+.carousel__button--left {
+    left: 40px;
+    font-size: 4em;
+    padding: 10px 30px 12px 30px;
+}
+
+.carousel__button--right {
+    right: 40px;
+    font-size: 4em;
+    padding: 10px 30px 12px 30px;
+}
+
+.carousel__nav {
+    display:flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+/* Dots below carousel showing which image you are on */
+.carousel__indicator {
+    border: 0;
+    border-radius: 50%;
+    width:20px;
+    height: 20px;
+    background: rgba(0, 0, 0, .3);
+    z-index: 0;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.carousel__indicator:hover {
+    background: rgba(0, 0, 0, .45);
+    transition: 0.3s;
+}
+
+.carousel__indicator.current-slide {
+    background: rgba(0,0,0,.75)
+}
+
+.is-hidden {
+    display: none;
+}
+
+/* Hero button/CTA */
+.bg__text {
+    font-weight: bold;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 15px 30px;
+    text-align: center;
+    pointer-events: none;
+  }
+
+.bg {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.6); /* Black w/opacity/see-through */
+    font-weight: bold;
+    width: 100%;
+    height: 3.3em;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 15px 0;
+    text-align: center;
+    pointer-events: none;
+    padding-bottom: 5px;
+  }
+
+.carousel__button--cta {
+    left: 50%;
+    transform: translateX(-50%);
+    top:76%;
+    font-size: 1.2em;
+    line-height: 1em;
+    border: 4px solid var(--yellow);
+    min-width: 12em;
+    z-index: 4;
+}
+.carousel__button--cta:hover {
+    background-color: var(--sienna-trans);
+    color: var(--charcoal);
+}
+
+.bg__text h1 {
+    font-size: 2;
+    color: var(--yellow);
+    width: 12em;
+    padding-top: 11em;
+}
+
+/* Large Screens Only */
+@media (min-width:55em) {
+
+    .bg__text h1 {
+        font-size: 2em;
+        width: 30em;
+    }
+    .bg {
+        height:2em ;
+        
+    }
+}

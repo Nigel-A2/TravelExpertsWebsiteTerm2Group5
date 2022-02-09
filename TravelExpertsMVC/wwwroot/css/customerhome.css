@@ -1,0 +1,71 @@
+/* customerhome.css */
+/* Styling of customers profile view */
+/* Author: Justin Molnar */
+/* CPRG 207 - Threaded Project */
+/* 2021-11-30 */
+
+/* Defult/Mobile */
+
+table, th, td, tr {
+	display: block;
+	}
+
+table {
+	text-align: left;
+	width: 20em;
+	margin: auto;
+
+	/* Used with next selector to not show too many overlapping borders */
+    border-left: solid 2px var(--charcoal);
+    border-right: solid 2px var(--charcoal);
+    border-top: solid 2px var(--charcoal);
+}
+
+table:last-of-type {
+    border-bottom: solid 2px var(--charcoal);
+}
+
+/* Alternate background color of each booking */
+table:nth-of-type(even){
+    background-color: var(--orange);
+}
+
+table:nth-of-type(odd){
+    background-color: var(--orange-accent);
+}
+
+td {
+	position: relative;
+}
+
+/* Large Screen Values */
+@media (min-width:55em) {
+
+	table {
+		display:table;
+        width: 100%;
+	}
+
+
+
+	td {
+		display:table-cell;
+		position: static;
+        width: 10em;
+	}
+
+	th{
+		padding: 0;
+		display:table-cell;
+		position: static;
+	}
+
+	tr {
+		display:table-row;
+	}
+
+        .label{
+            width:8em;
+            padding-right: 1em;
+        }
+    }

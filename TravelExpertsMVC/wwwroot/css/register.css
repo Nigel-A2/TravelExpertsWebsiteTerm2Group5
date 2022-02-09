@@ -1,0 +1,67 @@
+/* register.css */
+/* styling of the registration page */
+/* Author: Justin Molnar */
+/* CPRG 207 - Threaded Project */
+/* 2021-12-01 */
+
+/* Styling for registration form */
+
+/* Defult/Mobile */
+label {
+margin-right: 1em;
+}
+
+input, button, select {
+    height: 1.3em;
+}
+
+span {
+    display: none; /* Disable showing span - didn't delete in case we wanted to bring back */
+}
+
+table {
+    border: 0;
+    width: 85%;
+    margin:auto;
+}
+
+table tr {
+    display: block;
+    line-height: 2em;
+}
+
+table td {
+    display: block;
+    text-align: right;
+}
+
+.small {
+    width: 1px;
+}
+
+table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+    }
+
+    /* Desktop Only */
+  @media (min-width:55em) {
+
+    table {
+        border-collapse: collapse;
+
+        display: table;
+        }
+
+        table td {
+            display: table-cell;
+        }
+        
+        table tr {
+            display: table-row;
+        }
+
+        input, button, select {
+            float:left;
+        }
+}
