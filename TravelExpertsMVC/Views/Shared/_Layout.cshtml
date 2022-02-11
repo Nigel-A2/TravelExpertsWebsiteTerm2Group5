@@ -1,45 +1,79 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TravelExpertsMVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <!--Montserrat and Roboto - Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/333efb0c4e.js" crossorigin="anonymous"></script>
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Best Venture, Vacation, Packages, Holidays, Resort, Travel, Getaway, Tours, Tourism">
+    @RenderSection("head", required: false)
+
+    <link rel="shortcut icon" href="~/Images/favicon.png" />
+    <link href="~/css/headfoot.css" rel="stylesheet" />
+    <link href="~/css/index.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TravelExpertsMVC</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
+
+    <nav>
+        <img class="logo" src="~/Images/logo2.png" />
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav" id="navul">
+            <li><a class="nav__link" href="/">Home</a></li>
+            <li><a class="nav__link" href="~/home/packages">Packages</a></li>
+            <li><a class="nav__link" href="~/home/customerhome">Profile</a></li>
+            <li><a class="nav__link" href="~/home/register">Register</a></li>
+            <li><a class="nav__link" href="~/home/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <br><br>
+
+    <!-- Script for responive navigation, clicking hamburger button toggles .show class on navul -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navul = document.getElementById('navul');
+
+        hamburger.addEventListener('click', () => {
+            navul.classList.toggle('show');
+        });
+    </script>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - TravelExpertsMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+
+        <div class="col">
+            <a class="nav__link" href="/">Home Page</a><br />
+            <a class="nav__link" href="~/home/packages">Vacation Packages</a><br />
+            <a class="nav__link" href="~/home/contact">Contact Us</a><br />
         </div>
+        <div class="col">
+            <a class="nav__link" href="~/home/register">Register</a><br />
+            <a class="nav__link" href="~/home/customerhome">My Profile</a>
+        </div>
+        <div class="col">
+            <!-- Icons from font-awesome for social media -->
+            <a class="icon--foot" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square icon"></i></a>
+            <a class="icon--foot" href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square icon"></i></a>
+            <a class="icon--foot" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square icon"></i></a>
+            <p>Copyright &copy; Travel Experts, 2021</p>
+        </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
