@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@section head {
+    <meta name="description" content="Log in here: for the customers of the Travel Experts agency">
+    <title>Login - Travel Experts</title>
 }
+
+<br />
+<div class="main-content">
+    <div class="grid">
+        <h2>Login</h2>
+        <form method="post">
+            <label for="username">Username</label>
+            <br />
+            <input type="text" name="username" placeholder="Username" />
+            <br />
+            <label for="password">Password</label>
+            <br />
+            <input type="password" name="password" placeholder="Password" />
+            <br />
+            <button class="btn">Log In</button>
+        </form>
+    </div>
+    <div class="grid">
+        <h2>Don't have an account?</h2>
+        <a href="~/home/register"><button class="btn">Register</button></a>
+    </div>
+</div>
