@@ -45,43 +45,17 @@ namespace TravelExpertsMVC
                 TempData["IsError"] = true;
             }
 
-            List<Agency> agencies = null;
-            try
-            {
-                agencies = AgentManager.GetAgencies();
-            }
-            catch (Exception)
-            {
-                TempData["Message"] = "Database connection problem. Try again later.";
-                TempData["IsError"] = true;
-            }
-            return View(agents, agencies);
-        }
-
-        private ActionResult View(List<Agent> agents, List<Agency> agencies)
-        {
-           // List<Agent> agents = null;
-            try
-            {
-                agents = AgentManager.GetAgents();
-            }
-            catch (Exception)
-            {
-                TempData["Message"] = "Database connection problem. Try again later.";
-                TempData["IsError"] = true;
-            }
-
-          //  List<Agency> agencies = null;
-            try
-            {
-                agencies = AgentManager.GetAgencies();
-            }
-            catch (Exception)
-            {
-                TempData["Message"] = "Database connection problem. Try again later.";
-                TempData["IsError"] = true;
-            }
-            return View(agents, agencies);
+            //List<Agency> agencies = null;
+            //try
+            //{
+            //    agencies = AgentManager.GetAgencies();
+            //}
+            //catch (Exception)
+            //{
+            //    TempData["Message"] = "Database connection problem. Try again later.";
+            //    TempData["IsError"] = true;
+            //}
+            return View(agents);
         }
 
         // GET: HomeController/Packages
