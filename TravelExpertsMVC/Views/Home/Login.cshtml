@@ -1,26 +1,49 @@
-﻿@section head {
-    <meta name="description" content="Log in here: for the customers of the Travel Experts agency">
-    <title>Login - Travel Experts</title>
+﻿@model TravelExpertsMVC.Data.Customer
+@{
+	ViewData["Title"] = "Login";
+}
+@section head {
+	<meta name="description" content="Log in here: for the customers of the Travel Experts agency">
+	<title>Login - Travel Experts</title>
 }
 
 <br />
 <div class="main-content">
-    <div class="grid">
-        <h2>Login</h2>
-        <form method="post">
-            <label for="username">Username</label>
-            <br />
-            <input type="text" name="username" placeholder="Username" />
-            <br />
-            <label for="password">Password</label>
-            <br />
-            <input type="password" name="password" placeholder="Password" />
-            <br />
-            <button class="btn">Log In</button>
-        </form>
-    </div>
-    <div class="grid">
-        <h2>Don't have an account?</h2>
-        <a href="~/home/register"><button class="btn">Register</button></a>
-    </div>
+	<div class="grid">
+		<h2>Login</h2>
+		<form asp-action="Login">
+			@*<label for="username">Username</label>
+		<br />
+		<input type="text" name="username" placeholder="Username" />
+		<br />
+		<label for="password">Password</label>
+		<br />
+		<input type="password" name="password" placeholder="Password" />
+		<br />
+		<button class="btn">Log In</button>*@
+			<table class="table">
+				<tr>
+					<td>First name: </td>
+					<td><input type="text" asp-for="CustFirstName" /></td>
+				</tr>
+				<tr>
+					<td>Last name: </td>
+					<td><input type="text" asp-for="CustLastName" /></td>
+				</tr>
+				<tr>
+					<td>Password: </td>
+					<td><input type="password" asp-for="CustPassword" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="Authenticate" class="btn btn-primary" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="grid">
+		<h2>Don't have an account?</h2>
+		<a href="~/home/register"><button class="btn">Register</button></a>
+	</div>
 </div>
