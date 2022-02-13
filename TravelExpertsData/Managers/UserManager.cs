@@ -25,5 +25,12 @@ namespace TravelExpertsData.Managers
 			&& cust.CustPassword == password);
 			return user;
 		}
+
+		public static void AddCustomer(Customer customer)
+		{
+			TravelExpertsContext db = new TravelExpertsContext();
+			db.Customers.Add(customer);
+			db.SaveChanges();
+		}
 	}
 }

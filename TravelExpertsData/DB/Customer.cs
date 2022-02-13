@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -26,7 +28,15 @@ namespace TravelExpertsMVC.Data
         public string CustBusPhone { get; set; }
         public string CustEmail { get; set; }
         public int? AgentId { get; set; }
+
+        [Required(ErrorMessage = "Please enter a password.")]
+        [Compare("ConfirmPassword")]
         public string CustPassword { get; set; }
+
+        [Required(ErrorMessage = "Please confirm your password.")]
+        [Display(Name = "Confirm Password")]
+        [NotMapped]
+        public string ConfirmPassword { get; set; }
 
         public virtual Agent Agent { get; set; }
         public virtual ICollection<Booking> Bookings { get; set; }
