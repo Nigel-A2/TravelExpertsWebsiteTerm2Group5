@@ -12,7 +12,7 @@
 <div class="main-content">
 	<section>
 		<h1>Register Here!</h1>
-		<form id="registerform" method="post" action="/thankyou">
+		<form id="registerform" method="post" action="thankyou">
 			<table class="table">
 				<tr>
 					<td class="large"><label for="fname">First Name</label> </td>
@@ -37,11 +37,12 @@
 					<td class="large"><label for="cpassword">Confirm Password</label></td>
 					<td class="large"><input type="password" name="cpassword" /></td>
 					<td class="small"><span id="cpassword" style="visibility: hidden;">Password and Confirm Password must match</span></td>
-
+					<!--The assignment said that business phone needs to be optional-->
 					<td class="large"><label for="busphone">Business Phone Number</label></td>
 					<td class="large"><input type="text" name="busphone" placeholder="403-555-5555" /></td>
 					<td class="small"><span id="busphone" style="visibility: hidden;">Add a business phone number, enter your above phone number if dont have one</span></td>
-				<tr>
+<tr>
+					<!--The assignment said that email needs to be optional-->
 					<td class="large"><label for="email">Email</label></td>
 					<td class="large"><input type="email" name="email" placeholder="example@domain.ca" /></td>
 					<td class="small"><span id="email" style="visibility: hidden;">Add an email for account management</span></td>
@@ -83,17 +84,21 @@
 					<td class="large"><label for="postalcode">Postal Code/Zip Code</label></td>
 					<td class="large"><input type="text" name="postalcode" onfocus="revealDescription('postal')" onblur="hideDescription('postal')" placeholder="Q1Q 1Q1/55555-4444" /></td>
 					<td class="small"><span id="postal" style="visibility: hidden;">Customer Postal Code/Zip Code</span></td>
-
-					<td class="large"><label for="agent">Did one of our Agents assist you?</label></td>
+					<!--At this point in the project, the agentID will be null when the customer record is created. The customer will be assigned to an agent later-->
+					<!--<td class="large"><label for="agent">Did one of our Agents assist you?</label></td>
 					<td class="large">
 						<select name="agent" onfocus="revealDescription('agent')" onblur="hideDescription('agent')">
 							<option></option>
-							<% agents.forEach((agent)=>{ %>
-							<option><%= agent.AgtFirstName %> <%= agent.AgtLastName %></option>
-							<% }) %>
-						</select>
-					</td>
-					<td class="small"><span id="agent" style="visibility: hidden;">Select the name of the agent who assited you</span></td>
+						@*foreach AgentId in Model.Agents
+						{
+							<option>@Model.Agents.AgtFirstName &&  agent.AgtLastName</option>
+						}-->
+						@*<% agents.forEach((agent)=>{ %>*@
+
+
+						<!--</select>
+						</td>
+						<td class="small"><span id="agent" style="visibility: hidden;">Select the name of the agent who assited you</span></td>-->
 				</tr>
 				<tr>
 					<td></td>

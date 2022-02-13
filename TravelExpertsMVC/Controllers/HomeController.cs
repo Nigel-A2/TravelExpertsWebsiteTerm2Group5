@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -109,12 +110,14 @@ namespace TravelExpertsMVC
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         // GET: HomeController/CustomerHome
         public ActionResult CustomerHome()
         {
             return View();
         }
 
+        [Authorize]
         // GET: HomeController/Order
         public ActionResult Order()
         {
@@ -141,7 +144,7 @@ namespace TravelExpertsMVC
             {
                 // from movies example
                 UserManager.AddCustomer(customer);
-                return RedirectToAction("ThankYou");
+                return RedirectToAction("thankyou");
             }
             catch
             {

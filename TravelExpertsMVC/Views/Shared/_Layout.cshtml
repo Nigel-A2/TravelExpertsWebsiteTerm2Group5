@@ -23,62 +23,87 @@
 </head>
 <body>
 
-    <nav>
-        <img class="logo" src="~/Images/logo2.png" />
-        <button class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </button>
+	<nav>
+		<img class="logo" src="~/Images/logo2.png" />
+		<button class="hamburger" id="hamburger">
+			<i class="fas fa-bars"></i>
+		</button>
 		<ul class="nav" id="navul">
 			<li><a class="nav__link" href="/">Home</a></li>
 			<li><a class="nav__link" href="~/home/packages">Packages</a></li>
 			<li><a class="nav__link" href="~/home/customerhome">Profile</a></li>
-			<!--<li><a class="nav__link" href="~/home/register">Register</a></li>-->
+			<li><a class="nav__link" href="~/home/register">Register</a></li>
 			<li><a class="nav__link" href="~/home/contact">Contact</a></li>
-			<partial name="_LoginPartial" />
+			@*The layout is not truly responsive*@
+			@if (User.Identity.IsAuthenticated)
+			{
+				<li class="nav-item">
+					<a class="nav-link text-dark" asp-action="Index" title="Welcome">
+						Welcome @User.Identity.Name
+					</a>
+				</li>
+				<li class="nav-item">
+					<form class="form-inline" asp-controller="Home" asp-action="Logout"
+						  asp-route-returnUrl=@Url.Action("Index")>
+						<button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+					</form>
+				</li>
+			}
+			else
+			{
+				<li class="nav-item">
+					<a class="nav-link text-dark" asp-controller="Home" asp-action="Register">Register</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Login</a>
+				</li>
+			}
 		</ul>
-    </nav>
+	</nav>
 
-    <br><br>
+	
 
-    <!-- Script for responive navigation, clicking hamburger button toggles .show class on navul -->
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navul = document.getElementById('navul');
+	<br><br>
 
-        hamburger.addEventListener('click', () => {
-            navul.classList.toggle('show');
-        });
-    </script>
+	<!-- Script for responive navigation, clicking hamburger button toggles .show class on navul -->
+	<script>
+		const hamburger = document.getElementById('hamburger');
+		const navul = document.getElementById('navul');
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+		hamburger.addEventListener('click', () => {
+			navul.classList.toggle('show');
+		});
+	</script>
 
-    <footer>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
-        <div class="col">
-            <a class="nav__link" href="/">Home Page</a><br />
-            <a class="nav__link" href="~/home/packages">Vacation Packages</a><br />
-            <a class="nav__link" href="~/home/contact">Contact Us</a><br />
-        </div>
-        <div class="col">
-            <a class="nav__link" href="~/home/register">Register</a><br />
-            <a class="nav__link" href="~/home/customerhome">My Profile</a>
-        </div>
-        <div class="col">
-            <!-- Icons from font-awesome for social media -->
-            <a class="icon--foot" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square icon"></i></a>
-            <a class="icon--foot" href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square icon"></i></a>
-            <a class="icon--foot" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square icon"></i></a>
-            <p>Copyright &copy; Travel Experts, 2021</p>
-        </div>
+	<footer>
 
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+		<div class="col">
+			<a class="nav__link" href="/">Home Page</a><br />
+			<a class="nav__link" href="~/home/packages">Vacation Packages</a><br />
+			<a class="nav__link" href="~/home/contact">Contact Us</a><br />
+		</div>
+		<div class="col">
+			<a class="nav__link" href="~/home/register">Register</a><br />
+			<a class="nav__link" href="~/home/customerhome">My Profile</a>
+		</div>
+		<div class="col">
+			<!-- Icons from font-awesome for social media -->
+			<a class="icon--foot" href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square icon"></i></a>
+			<a class="icon--foot" href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square icon"></i></a>
+			<a class="icon--foot" href="https://instagram.com" target="_blank"><i class="fab fa-instagram-square icon"></i></a>
+			<p>Copyright &copy; Travel Experts, 2021</p>
+		</div>
+
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
