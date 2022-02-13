@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TravelExpertsData;
 using TravelExpertsMVC.Data;
+using Microsoft.AspNetCore.Authentication.Cookies; // cookies authentication
 
 namespace TravelExpertsMVC
 {
@@ -28,13 +29,13 @@ namespace TravelExpertsMVC
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<TravelExpertsContext>(options =>
-				options.UseSqlServer(
-					Configuration.GetConnectionString("DefaultConnection")));
-			services.AddDatabaseDeveloperPageExceptionFilter();
-
-			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-				.AddEntityFrameworkStores<TravelExpertsContext>();
+			//services.AddDbContext<TravelExpertsContext>(options =>
+			//	options.UseSqlServer(
+			//		Configuration.GetConnectionString("DefaultConnection")));
+			//services.AddDatabaseDeveloperPageExceptionFilter();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme). //"Cookies"
+			   AddCookie(opt => opt.LoginPath = "/Home/Login"); // what's the login page
+			services.AddSession(); // need to use Session
 			services.AddControllersWithViews();
 		}
 
@@ -53,19 +54,18 @@ namespace TravelExpertsMVC
 				app.UseHsts();
 			}
 			app.UseHttpsRedirection();
+			app.UseStatusCodePages(); // more user friendly error pages for 404, 403 errors
 			app.UseStaticFiles();
-
 			app.UseRouting();
-
-			app.UseAuthentication();
+			app.UseAuthentication(); // needed
 			app.UseAuthorization();
-
+			app.UseSession(); // to use Session object
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
 					pattern: "{controller=Home}/{action=Index}/{id?}");
-				endpoints.MapRazorPages();
+				//endpoints.MapRazorPages();
 			});
 		}
 	}

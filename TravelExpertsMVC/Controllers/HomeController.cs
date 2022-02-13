@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using TravelExpertsData.Managers;
+using TravelExpertsMVC.Data;
 
 namespace TravelExpertsMVC
 {
@@ -40,9 +44,48 @@ namespace TravelExpertsMVC
         }
 
         // GET: HomeController/Login
-        public ActionResult Login()
+        public IActionResult Login(string returnUrl = "")
         {
+            if (returnUrl != null)
+                TempData["ReturnUrl"] = returnUrl;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LoginAsync(Customer customer)
+        {
+            Customer cust = UserManager.Authenticate(customer.CustFirstName, customer.CustLastName, customer.CustPassword);
+            if (cust == null) // authentication failed
+            {
+                return View(); // stay on the login page
+            }
+
+            // using cookies
+
+            //store customer ID in session object
+            HttpContext.Session.SetInt32("CurrentCustomer", (int)cust.CustomerId);
+            // user != null -- authentication passed
+            List<Claim> claim = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, cust.CustFirstName)
+				//new Claim("FullName", cust.ID)
+			};
+
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claim, "Cookies"); // cookies authetication
+            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            await HttpContext.SignInAsync("Cookies", claimsPrincipal);
+
+            if (String.IsNullOrEmpty(TempData["ReturnUrl"].ToString()))
+                return RedirectToAction("Index"); 
+            else
+                return Redirect(TempData["ReturnUrl"].ToString());
+        }
+
+        public async Task<IActionResult> LogoutAsync()
+        {
+            await HttpContext.SignOutAsync("Cookies");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: HomeController/CustomerHome
