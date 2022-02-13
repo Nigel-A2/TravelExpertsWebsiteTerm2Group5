@@ -128,13 +128,30 @@ namespace TravelExpertsMVC
         }
 
         // GET: HomeController/Register
-        public ActionResult Register()
+        public IActionResult Register()
         {
-            return View();
+            return View(new Customer());
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(Customer customer)
+        {
+            try 
+            {
+                // from movies example
+                UserManager.AddCustomer(customer);
+                return RedirectToAction("ThankYou");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
         // GET: HomeController/ThankYou
-        public ActionResult ThankYou()
+        public IActionResult ThankYou(Customer customer)
         {
             return View();
         }
