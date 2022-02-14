@@ -9,10 +9,10 @@
 	<title>Register - Travel Experts</title>
 }
 
-<div class="main-content">
+<!--<div class="main-content">
 	<section>
 		<h1>Register Here!</h1>
-		<form id="registerform" method="post" action="/thankyou">
+		<form id="registerform" method="post" action="thankyou">
 			<table class="table">
 				<tr>
 					<td class="large"><label for="fname">First Name</label> </td>
@@ -36,13 +36,14 @@
 				<tr>
 					<td class="large"><label for="cpassword">Confirm Password</label></td>
 					<td class="large"><input type="password" name="cpassword" /></td>
-					<td class="small"><span id="cpassword" style="visibility: hidden;">Password and Confirm Password must match</span></td>
-
-					<td class="large"><label for="busphone">Business Phone Number</label></td>
+					<td class="small"><span id="cpassword" style="visibility: hidden;">Password and Confirm Password must match</span></td>-->
+					<!--The assignment said that business phone needs to be optional-->
+					<!--<td class="large"><label for="busphone">Business Phone Number</label></td>
 					<td class="large"><input type="text" name="busphone" placeholder="403-555-5555" /></td>
-					<td class="small"><span id="busphone" style="visibility: hidden;">Add a business phone number, enter your above phone number if dont have one</span></td>
-				<tr>
-					<td class="large"><label for="email">Email</label></td>
+					<td class="small"><span id="busphone" style="visibility: hidden;">Add a business phone number, enter your above phone number if dont have one</span></td>-->
+				
+					<!--The assignment said that email needs to be optional-->
+					<!--<td class="large"><label for="email">Email</label></td>
 					<td class="large"><input type="email" name="email" placeholder="example@domain.ca" /></td>
 					<td class="small"><span id="email" style="visibility: hidden;">Add an email for account management</span></td>
 				</tr>
@@ -82,19 +83,23 @@
 				<tr>
 					<td class="large"><label for="postalcode">Postal Code/Zip Code</label></td>
 					<td class="large"><input type="text" name="postalcode" onfocus="revealDescription('postal')" onblur="hideDescription('postal')" placeholder="Q1Q 1Q1/55555-4444" /></td>
-					<td class="small"><span id="postal" style="visibility: hidden;">Customer Postal Code/Zip Code</span></td>
-
-					<td class="large"><label for="agent">Did one of our Agents assist you?</label></td>
+					<td class="small"><span id="postal" style="visibility: hidden;">Customer Postal Code/Zip Code</span></td>-->
+					<!--At this point in the project, the agentID will be null when the customer record is created. The customer will be assigned to an agent later-->
+					<!--<td class="large"><label for="agent">Did one of our Agents assist you?</label></td>
 					<td class="large">
 						<select name="agent" onfocus="revealDescription('agent')" onblur="hideDescription('agent')">
 							<option></option>
-							<% agents.forEach((agent)=>{ %>
-							<option><%= agent.AgtFirstName %> <%= agent.AgtLastName %></option>
-							<% }) %>
-						</select>
-					</td>
-					<td class="small"><span id="agent" style="visibility: hidden;">Select the name of the agent who assited you</span></td>
-				</tr>
+						@*foreach AgentId in Model.Agents
+						{
+							<option>@Model.Agents.AgtFirstName &&  agent.AgtLastName</option>
+						}-->
+						@*<% agents.forEach((agent)=>{ %>*@
+
+
+						<!--</select>
+						</td>
+						<td class="small"><span id="agent" style="visibility: hidden;">Select the name of the agent who assited you</span></td>-->
+				@*</tr>
 				<tr>
 					<td></td>
 					<td class="large"><input type="reset" value="Clear" class="formsubmit btn" onclick="return confirm('Are you sure you want clear all values from all fields?')" /></td>
@@ -105,74 +110,147 @@
 			</table>
 		</form>
 	</section>
-</div>
+</div>*@
 
-<!--<form asp-action="Index" method="post">
+<form asp-action="Register" method="post">
 
+	<!--First name-->
 	<div class="form-group row">
 		<div class="col-sm-2"><label>First name:</label></div>
 		<div class="col-sm-4">
-			<input type="text" asp-for="@*Model.FirstName" class="form-control" />
+			<input type="text" asp-for="@Model.CustFirstName" class="form-control" />
 		</div>
 		<div class="col">
-			<span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+			<span asp-validation-for="@Model.CustFirstName" class="text-danger"></span>
 		</div>
-	</div>-->
+	</div>
 	<!--Last name-->
-	<!--<div class="form-group row">
+	<div class="form-group row">
 		<div class="col-sm-2"><label>Last name:</label></div>
 		<div class="col-sm-4">
-			<input type="text" asp-for="@Model.LastName" class="form-control" />
+			<input type="text" asp-for="@Model.CustLastName" class="form-control" />
 		</div>
 		<div class="col">
-			<span asp-validation-for="@Model.LastName" class="text-danger"></span>
+			<span asp-validation-for="@Model.CustLastName" class="text-danger"></span>
 		</div>
-	</div>-->
-	<!--Phone number-->
-	<!--<div class="form-group row">
-		<div class="col-sm-2"><label>Phone:</label></div>
+	</div>
+	<!--Email (must be optional)-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Email (optional):</label></div>
 		<div class="col-sm-4">
-			<input type="text" asp-for="@Model.Phone" class="form-control" />
+			<input type="text" asp-for="@Model.CustEmail" class="form-control" />
 		</div>
 		<div class="col">
-			<span asp-validation-for="@Model.Phone" class="text-danger"></span>
+			<span asp-validation-for="@Model.CustEmail" class="text-danger"></span>
 		</div>
-	</div>-->
-	<!--city-->
-	<!--<div class="form-group row">
+	</div>
+	<!--Phone number (home)-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Home Phone:</label></div>
+		<div class="col-sm-4">
+			<input type="text" asp-for="@Model.CustHomePhone" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.CustHomePhone" class="text-danger"></span>
+		</div>
+	</div>
+	<!--bus Phone number (must be optional)-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Business phone (optional):</label></div>
+		<div class="col-sm-4">
+			<input type="text" asp-for="@Model.CustBusPhone" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.CustBusPhone" class="text-danger"></span>
+		</div>
+	</div>
+	<!--Address-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Address:</label></div>
+		<div class="col-sm-4">
+			<input type="text" asp-for="@Model.CustAddress" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.CustAddress" class="text-danger"></span>
+		</div>
+	</div>
+	<!--postal code-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Postal Code:</label></div>
+		<div class="col-sm-4">
+			<input type="text" asp-for="@Model.CustPostal" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.CustPostal" class="text-danger"></span>
+		</div>
+	</div>
+	<!--City-->
+	<div class="form-group row">
 		<div class="col-sm-2"><label>City:</label></div>
 		<div class="col-sm-4">
-			<input type="text" asp-for="@Model.City" class="form-control" />
+			<input type="text" asp-for="@Model.CustCity" class="form-control" />
 		</div>
 		<div class="col">
-			<span asp-validation-for="@Model.City" class="text-danger"></span>
+			<span asp-validation-for="@Model.CustCity" class="text-danger"></span>
 		</div>
-	</div>-->
-	<!--Username-->
-	<!--<div class="form-group row">
-		<div class="col-sm-2"><label>Username:</label></div>
+	</div>
+	<!--Province-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Province:</label></div>
 		<div class="col-sm-4">
-			<input type="text" asp-for="@Model.Username" class="form-control" />
+			<input type="text" asp-for="@Model.CustProv" class="form-control" />
 		</div>
 		<div class="col">
-			<span asp-validation-for="@Model.Username" class="text-danger"></span>
+			<span asp-validation-for="@Model.CustProv" class="text-danger"></span>
 		</div>
-	</div>-->
+	</div>
+	<!--Country-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Country:</label></div>
+		<div class="col-sm-4">
+			<input type="text" asp-for="@Model.CustCountry" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.CustCountry" class="text-danger"></span>
+		</div>
+	</div>
+	<!--Agent ID-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Agent ID:</label></div>
+		<div class="col-sm-4">
+			<input type="text" asp-for="@Model.AgentId" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.AgentId" class="text-danger"></span>
+		</div>
+	</div>
 	<!--password-->
-	<!--<div class="form-group row">
+	<div class="form-group row">
 		<div class="col-sm-2"><label>Password:</label></div>
 		<div class="col-sm-4">
-			<input type="text" asp-for="@Model.Password" class="form-control" />
+			<input type="password" asp-for="@Model.CustPassword" class="form-control" />
 		</div>
 		<div class="col">
-			<span asp-validation-for="@Model.Password*@" class="text-danger"></span>
+			<span asp-validation-for="@Model.CustPassword" class="text-danger"></span>
 		</div>
-	</div>-->
-	<!--submit button-->
-	<!--<div class="row">
+	</div>
+	<!--password confirm-->
+	<div class="form-group row">
+		<div class="col-sm-2"><label>Confirm Password:</label></div>
+		<div class="col-sm-4">
+			<input type="password" asp-for="@Model.ConfirmPassword" class="form-control" />
+		</div>
+		<div class="col">
+			<span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+		</div>
+	</div>
+	<!--reset button-->
+	<div class="large"><input type="reset" value="Clear" class="formsubmit btn" onclick="return confirm('Are you sure you want clear all values from all fields?')" /></div>
+	@*submit button*@
+	<div class="row">
 		<div class="offset-2 col-sm-4">
 			<button type="submit" class="btn btn-primary">Register</button>
 		</div>
 	</div>
 
-</form>-->
+</form>
