@@ -24,8 +24,15 @@ namespace TravelExpertsMVC.Data
         public string CustProv { get; set; }
         public string CustPostal { get; set; }
         public string CustCountry { get; set; }
+
+        
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}")]
         public string CustHomePhone { get; set; }
+
+
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}")]
         public string CustBusPhone { get; set; }
+        [EmailAddress]
         public string CustEmail { get; set; }
         public int? AgentId { get; set; }
 

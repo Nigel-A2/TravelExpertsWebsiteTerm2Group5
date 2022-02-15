@@ -1,42 +1,72 @@
 ﻿using Microsoft.AspNetCore.Http;
+
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TravelExpertsData.DBViews;
 using TravelExpertsData.Managers;
+using TravelExpertsMVC.Data;
 
 namespace TravelExpertsMVC.Controllers
 {
-    public class CustomerBookingController : Controller
+    public class CustomerController : Controller
     {
-        // GET: CustomerBookingController
+        // GET: CustomerController
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult EditProfile()
         {
             int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
             if (customerID == null)
             {
                 // non-owner logged in
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Customer");
             }
-            List<CustomerBooking> bookings = BookingManager.GetCustomerBookings((int)customerID);
-            return View(bookings);
+            Customer customer = UserManager.GetCustomer((int)customerID);
+            return View(customer);
+
         }
 
-        // GET: CustomerBookingController/Details/5
+        // GET: CustomerController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile(Customer customer)
+        {
+            int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
+            customer.CustomerId = (int)customerID;
+            if (ModelState.IsValid)
+            {
+                Customer cust = UserManager.UpdateCustomer(customer);
+                if (cust == null)
+                {
+                    return View(customer);
+                }
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View(customer);
+            }
+        }
+
+        // GET: CustomerController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CustomerBookingController/Create
+        // GET: CustomerController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CustomerBookingController/Create
+        // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -51,13 +81,15 @@ namespace TravelExpertsMVC.Controllers
             }
         }
 
-        // GET: CustomerBookingController/Edit/5
+        // GET: CustomerController/Edit/5
         public ActionResult Edit(int id)
         {
+            //get customer
+            //fill form with current data
             return View();
         }
 
-        // POST: CustomerBookingController/Edit/5
+        // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -72,13 +104,13 @@ namespace TravelExpertsMVC.Controllers
             }
         }
 
-        // GET: CustomerBookingController/Delete/5
+        // GET: CustomerController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CustomerBookingController/Delete/5
+        // POST: CustomerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

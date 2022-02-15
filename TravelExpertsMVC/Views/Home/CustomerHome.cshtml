@@ -50,34 +50,5 @@
                 <td><%= customer.AgentId %></td>
             </tr>
         </table>
-
-        <h2>
-            Your Bookings Info:
-        </h2>
-
-        <div class="grid">
-            <!-- Table of Booking information, Booking ID, Number, Date, Traveler count, Trip Type -->
-            <% orders.forEach((order)=>{ %>  <!-- Build a table for each order pulled from DB -->
-            <table>
-                <tr>
-                    <td class="label"><b>Booking ID:</b></td>
-                    <td><%= order.BookingId %></td>
-                    <td class="label"><b>Booking Number:</b></td>
-                    <td><%= order.BookingNo %></td>
-                </tr>
-                <tr>
-                    <td class="label"><b>Booked On:</b></td>
-                    <td style="width:25em"><%= order.BookingDate %></td>
-                </tr>
-                <tr>
-                    <td class="label"><b>Travelers:</b></td>
-                    <td><%= order.TravelerCount %></td>
-                    <td class="label"><b>Trip Type:</b></td>
-                    <td><%= order.TripTypeId %></td>
-                </tr>
-            </table>
-            <% }) %> <!-- End of for each -->
-
-        </div>
     </div>
 </div>

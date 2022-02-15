@@ -32,5 +32,21 @@ namespace TravelExpertsData.Managers
 			db.Customers.Add(customer);
 			db.SaveChanges();
 		}
-	}
+
+		public static Customer GetCustomer(int customerID)
+        {
+			TravelExpertsContext db = new TravelExpertsContext();
+			Customer customer = db.Customers.SingleOrDefault(cust => cust.CustomerId == customerID);
+			return customer;
+		}
+
+        public static Customer UpdateCustomer(Customer customer)
+        {
+			TravelExpertsContext db = new TravelExpertsContext();
+
+			db.Update(customer);
+
+			return customer;
+		}
+    }
 }
