@@ -1,15 +1,16 @@
-﻿@model IEnumerable<TravelExpertsMVC.Data.Agent>
+﻿@model ContactViewModel
+@*William Rust -- February 13, 2022*@
+
+
 @section head {
     <meta name="description" content="Contact Information of the Travel Experts Agency & Individual Travel Agents">
     <title>Contact Us - Travel Experts</title>
     <link rel="stylesheet" href="~/css/contact.css" />
 }
-
 <br>
 <div class="main-content" style="min-height: 0;">
     <div class="grid">
         <h3>About Us...</h3>
-
         <!--A breif introduction about the client with two links , one directing to 404 page-->
         <p class="para">
             We are one of the leading travel agencies in Alberta. At Travel Experts, we take pride
@@ -24,31 +25,54 @@
     </div>
     <div class="grid">
 
-        <!--Pulling data from agencies table-->
-        <% agencies.forEach((agencies)=>{ %>
-        <h3>Get in contact with our <%= agencies.AgncyCity %>  team!</h3>
-        <ul class="contactlist">
-            <li class="contactlistitem"><span class="contactbody">Call us at (<%= agencies.AgncyPhone.slice(0, 3) %>)-<%= agencies.AgncyPhone.slice(3, 6) %>-<%= agencies.AgncyPhone.slice(6, 10) %></span></li>
-            <li class="contactlistitem"><span class="contactbody">Email us at <a href="mailto:customer.service@gatortravels.ca" class="linkcolour">customer.service@gatortravels.ca</a></span></li>
-            <li class="contactlistitem"><span class="contactbody">Visit our office on <%= agencies.AgncyAddress %>, <%= agencies.AgncyCity %> <%= agencies.AgncyProv %>, <%= agencies.AgncyCountry %></span></li>
-        </ul>
-        <% }); %>
+        @foreach (var location in Model.Agencies)
+        {
 
+            //Pulling data from agencies table
+            <h3>Get in contact with our @location.AgncyCity team!</h3>
+            <ul class="contactlist">
+                <li class="contactlistitem"><span class="contactbody">Call us at @location.AgncyPhone</span></li>
+                <li class="contactlistitem"><span class="contactbody">Email us at <a href="mailto:customer.service@gatortravels.ca" class="linkcolour">customer.service@gatortravels.ca</a></span></li>
+                <li class="contactlistitem"><span class="contactbody">Visit our office on @location.AgncyAddress, @location.AgncyCity, @location.AgncyProv, @location.AgncyCountry</span></li>
+            </ul>
+        }
     </div>
 </div>
 
 <div class="main-content">
+    <table>
+        <tr><th colspan="3">Get in Touch - Calagary</th></tr>
+        @foreach (var agent in Model.Agents)
+        {
+
+
+            @if (agent.AgencyId == 1)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => agent.AgtFirstName) @Html.DisplayFor(modelItem => agent.AgtLastName)</td>
+                    <td>@Html.DisplayFor(modelItem => agent.AgtBusPhone)</td>
+                    <td><a style="color:var(--charcoal)" href="mailto:@Html.DisplayFor(modelItem => agent.AgtEmail)">@Html.DisplayFor(modelItem => agent.AgtEmail)</a></td>
+                </tr>
+            }
+        }
+    </table>
 
     <table>
-        <tr><th colspan="3">Get in Touch</th></tr>
-        @foreach (var item in Model)
+        <tr><th colspan="3">Get in Touch - Okatokes</th></tr>
+        @foreach (var agent in Model.Agents)
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.AgtFirstName) @Html.DisplayFor(modelItem => item.AgtLastName)</td>
-                <td>@Html.DisplayFor(modelItem => item.AgtBusPhone)</td>
-                <td><a style="color:var(--charcoal)" href="mailto:@Html.DisplayFor(modelItem => item.AgtEmail)">@Html.DisplayFor(modelItem => item.AgtEmail)</a></td>
-            </tr>
+
+
+            @if (agent.AgencyId == 2)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => agent.AgtFirstName) @Html.DisplayFor(modelItem => agent.AgtLastName)</td>
+                    <td>@Html.DisplayFor(modelItem => agent.AgtBusPhone)</td>
+                    <td><a style="color:var(--charcoal)" href="mailto:@Html.DisplayFor(modelItem => agent.AgtEmail)">@Html.DisplayFor(modelItem => agent.AgtEmail)</a></td>
+                </tr>
+            }
         }
     </table>
 
 </div>
+

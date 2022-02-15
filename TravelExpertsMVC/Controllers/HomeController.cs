@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
+using TravelExpertsMVC.Models;
 
 namespace TravelExpertsMVC
 {
@@ -35,16 +36,22 @@ namespace TravelExpertsMVC
         // GET: HomeController/Contact
         public ActionResult Contact()
         {
-            List<Agent> agents = null;
-            try
-            {
-                agents = AgentManager.GetAgents();
-            }
-            catch (Exception)
-            {
-                TempData["Message"] = "Database connection problem. Try again later.";
-                TempData["IsError"] = true;
-            }
+
+            ContactViewModel contactView = new ContactViewModel();
+            contactView.Agencies = AgentManager.GetAgencies();
+            contactView.Agents = AgentManager.GetAgents();
+
+            //return View(contactView);
+            //List<Agent> agents = null;
+            //try
+            //{
+            //    agents = AgentManager.GetAgents();
+            //}
+            //catch (Exception)
+            //{
+            //    TempData["Message"] = "Database connection problem. Try again later.";
+            //    TempData["IsError"] = true;
+            //}
 
             //List<Agency> agencies = null;
             //try
@@ -56,13 +63,15 @@ namespace TravelExpertsMVC
             //    TempData["Message"] = "Database connection problem. Try again later.";
             //    TempData["IsError"] = true;
             //}
-            return View(agents);
+            return View(contactView);
         }
 
         // GET: HomeController/Packages
         public ActionResult Packages()
         {
-            return View();
+            PackageViewModel packageView = new PackageViewModel();
+            packageView.Packages = PackageManager.GetPackages();
+            return View(packageView);
         }
 
         // GET: HomeController/Login

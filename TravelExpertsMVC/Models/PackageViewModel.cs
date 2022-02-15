@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
+using TravelExpertsMVC.Data;
 
-#nullable disable
-
-namespace TravelExpertsMVC.Data
+namespace TravelExpertsMVC.Models
 {
-    public partial class Package
+    public class PackageViewModel
     {
-        public Package()
-        {
-            Bookings = new HashSet<Booking>();
-            PackagesProductsSuppliers = new HashSet<PackagesProductsSupplier>();
-        }
+        public IEnumerable<Package> Packages { get; set; }
 
         public int PackageId { get; set; }
 
@@ -32,9 +30,5 @@ namespace TravelExpertsMVC.Data
         public decimal PkgBasePrice { get; set; }
 
         public decimal? PkgAgencyCommission { get; set; }
-
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
-
     }
 }
