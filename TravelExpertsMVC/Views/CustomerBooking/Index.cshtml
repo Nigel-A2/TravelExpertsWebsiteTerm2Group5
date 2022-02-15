@@ -1,0 +1,86 @@
+﻿@model IEnumerable<TravelExpertsData.DBViews.CustomerBooking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My bookings</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingNo)
+            </td>
+            <td>
+                @{ 
+                    string bookingDateValue = item.BookingDate.GetValueOrDefault().ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => bookingDateValue)
+            </td>
+            <td>
+                @{
+                    string startDateValue = item.TripStart.GetValueOrDefault().ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => startDateValue)
+            </td>
+            <td>
+                @{
+                    string endDateValue = item.TripEnd.GetValueOrDefault().ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => endDateValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @{
+                    string formattedPrice = string.Format("{0:C}", item.TotalPrice);
+                }
+                @Html.DisplayFor(modelItem => formattedPrice)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    Price of all bookings:
+    @{
+        decimal totalCost = 0m;
+        foreach (var item in Model)
+        {
+            totalCost += item.TotalPrice;
+        }
+    }
+    @string.Format("{0:C}", totalCost)
+</div>
