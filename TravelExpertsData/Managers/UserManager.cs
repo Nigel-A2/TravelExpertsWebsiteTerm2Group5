@@ -44,7 +44,23 @@ namespace TravelExpertsData.Managers
         {
 			TravelExpertsContext db = new TravelExpertsContext();
 
-			db.Update(customer);
+            try
+            {
+				var customerToUpdate = db.Customers.SingleOrDefault(c => c.CustomerId == customer.CustomerId);
+				customerToUpdate.CustEmail = customer.CustEmail;
+				customerToUpdate.CustAddress = customer.CustAddress;
+				customerToUpdate.CustBusPhone = customer.CustBusPhone;
+				customerToUpdate.CustCity = customer.CustCity;
+				customerToUpdate.CustPostal = customer.CustPostal;
+				customerToUpdate.CustHomePhone = customer.CustHomePhone;
+				customerToUpdate.CustCountry = customer.CustCountry;
+				customerToUpdate.CustProv = customer.CustProv;
+				db.SaveChanges();
+			} catch (Exception exception)
+			{
+				Console.WriteLine("Erro: " + exception.Message);
+            }
+			
 
 			return customer;
 		}

@@ -18,34 +18,27 @@ namespace TravelExpertsMVC.Controllers
             return View();
         }
 
-        public ActionResult EditProfile()
+        public ActionResult Edit()
         {
             int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
             if (customerID == null)
             {
                 // non-owner logged in
-                return RedirectToAction("Login", "Customer");
+                return RedirectToAction("Login", "Home");
             }
             Customer customer = UserManager.GetCustomer((int)customerID);
             return View(customer);
 
         }
 
-        // GET: CustomerController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditProfile(Customer customer)
+        public ActionResult Edit(Customer customer)
         {
             int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
             customer.CustomerId = (int)customerID;
             if (ModelState.IsValid)
             {
-                Customer cust = UserManager.UpdateCustomer(customer);
-                if (cust == null)
-                {
-                    return View(customer);
-                }
-
+                UserManager.UpdateCustomer(customer);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -80,29 +73,7 @@ namespace TravelExpertsMVC.Controllers
                 return View();
             }
         }
-
-        // GET: CustomerController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            //get customer
-            //fill form with current data
-            return View();
-        }
-
-        // POST: CustomerController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
 
         // GET: CustomerController/Delete/5
         public ActionResult Delete(int id)

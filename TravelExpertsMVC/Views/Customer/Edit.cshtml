@@ -1,22 +1,29 @@
 ﻿@model TravelExpertsMVC.Data.Customer
 
 @{
-    ViewData["Title"] = "EditProfile";
+    ViewData["Title"] = "Edit";
 }
+
+<h1>Edit</h1>
+
+<h4>Customer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditProfile">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Edit">
             <div class="form-group">
-                @Model.CustFirstName
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control" value="@Model.CustomerId"/>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="CustFirstName" class="control-label"></label>
-                <input asp-for="CustFirstName" class="form-control" value="@Model.CustFirstName" readonly/>
+                <input asp-for="CustFirstName" class="form-control" value="@Model.CustFirstName"/>
                 <span asp-validation-for="CustFirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CustLastName" class="control-label"></label>
-                <input asp-for="CustLastName" class="form-control" value="@Model.CustLastName" readonly/>
+                <input asp-for="CustLastName" class="form-control" value="@Model.CustLastName"/>
                 <span asp-validation-for="CustLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -59,8 +66,23 @@
                 <input asp-for="CustEmail" class="form-control" value="@Model.CustEmail"/>
                 <span asp-validation-for="CustEmail" class="text-danger"></span>
             </div>
+            <div class="form-group" style="display: none">
+                <label asp-for="AgentId" class="control-label"></label>
+                <input asp-for="AgentId" class="form-control" value="@Model.AgentId"/>
+                <span asp-validation-for="AgentId" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none">
+                <label asp-for="CustPassword" class="control-label"></label>
+                <input asp-for="CustPassword" class="form-control" value="a"/>
+                <span asp-validation-for="CustPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" value="a"/>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
