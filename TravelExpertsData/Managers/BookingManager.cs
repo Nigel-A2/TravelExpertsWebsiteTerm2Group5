@@ -36,7 +36,8 @@ namespace TravelExpertsData.Managers
                                           BookingId = bd.booking.BookingId,
                                           BookingNo = bd.booking.BookingNo,
                                           BookingDate = bd.booking.BookingDate,
-                                          TotalPrice = Convert.ToDecimal(bd.details.BasePrice) + Convert.ToDecimal(bd.details.AgencyCommission),
+                                          TotalPrice = Convert.ToDecimal(bd.booking.TravelerCount.GetValueOrDefault(1))
+                                          * Convert.ToDecimal(bd.details.BasePrice) + Convert.ToDecimal(bd.details.AgencyCommission),
                                           TripStart = bd.details.TripStart,
                                           TripEnd = bd.details.TripEnd,
                                           Description = bd.details.Description,
