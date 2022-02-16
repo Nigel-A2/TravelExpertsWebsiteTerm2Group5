@@ -16,12 +16,11 @@ input, button, select {
 }
 
 span {
-    display: none; /* Disable showing span - didn't delete in case we wanted to bring back */
+    /*display: none; Disable showing span - didn't delete in case we wanted to bring back */
 }
 
 table {
     border: 0;
-    width: 85%;
     margin:auto;
 }
 

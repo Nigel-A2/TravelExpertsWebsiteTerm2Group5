@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/contact.css" />
 }
 <br>
-<div class="main-content" style="min-height: 0;">
+<div class="main-content" style="min-height: 5vh !important;">
     <div class="grid">
         <h3>About Us...</h3>
         <!--A breif introduction about the client with two links , one directing to 404 page-->
@@ -31,7 +31,7 @@
             //Pulling data from agencies table
             <h3>Get in contact with our @location.AgncyCity team!</h3>
             <ul class="contactlist">
-                <li class="contactlistitem"><span class="contactbody">Call us at @location.AgncyPhone</span></li>
+                <li class="contactlistitem"><span class="contactbody">Call us at @location.AgncyPhone.Insert(0, "(").Insert(4, ")").Insert(8, "-")</span></li>
                 <li class="contactlistitem"><span class="contactbody">Email us at <a href="mailto:customer.service@gatortravels.ca" class="linkcolour">customer.service@gatortravels.ca</a></span></li>
                 <li class="contactlistitem"><span class="contactbody">Visit our office on @location.AgncyAddress, @location.AgncyCity, @location.AgncyProv, @location.AgncyCountry</span></li>
             </ul>

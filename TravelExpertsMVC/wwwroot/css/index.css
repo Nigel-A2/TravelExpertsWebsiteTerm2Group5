@@ -6,19 +6,23 @@
 
 :root {
     /* Defult Palette */
-
-    --charcoal: #264653ff;
+    /*    --charcoal: #264653ff;
     --green: #2a9d8fff;
     --yellow: #e9c46aff;
     --orange: #f4a261ff;
     --orange-accent: #f5ab71;
     --sienna: #e76f51ff;
-    --sienna-trans: #e76f51e6;
+    --sienna-trans: #e76f51e6;*/
 
+    --charcoal: #333333ff;
+    --green: #454545ff;
+    --yellow: #e8e8e8ff;
+    --orange: #f2bf96;
+    --orange-accent: #efb281;
+    --sienna: #878787ff;
+    --sienna-trans: #e878787e6;
     /* Temparary way to change colors, Comment out defult and Uncomment any other group of colors */
-
     /* Christmas Tree */
-
     /* --charcoal:  #418052;
     --green: #CFCFCF;
     --yellow: #e48787;
@@ -27,9 +31,7 @@
     --orange-trans: #FFFFFFE6;
     --sienna: #C7FBFF;
     --sienna-trans: #C7FBFFE6; */
-
     /* Dark Theme Mono */
-
     /* --charcoal: #494949;
     --green: #a1a1a1;
     --yellow: #d8d8d8;
@@ -38,9 +40,7 @@
     --orange-trans: #5a5a5ae6;
     --sienna: #5a5a5a;
     --sienna-trans: #c2c2c2e6; */
-
     /* Blue */
-
     /* --charcoal: #2c244b;
     --green: #574C75;
     --yellow: #7b9e99;
@@ -50,9 +50,8 @@
     --sienna: #d6415f;
     --sienna-trans: #d6415fe6;  */
 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Commissioner', sans-serif;
     font-size: 1.2rem;
-
     /* Text and <h> color vars */
     --h-tag-color: var(--charcoal);
     --text-color: black;
@@ -67,7 +66,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     color: var(--h-tag-color);
     text-align: center;
     padding: .5em 0em .5em 0em;

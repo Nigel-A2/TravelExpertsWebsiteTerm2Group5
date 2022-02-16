@@ -4,7 +4,7 @@
     <!--Montserrat and Roboto - Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner&family=Fraunces&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,14 +39,14 @@
             {
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-action="Index" title="Welcome">
-                        Welcome @User.Identity.Name
+                        Hi, @User.Identity.Name!
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-controller="CustomerBooking" asp-action="Index">My bookings</a>
+                    <a class="nav-link text-dark" asp-controller="CustomerBooking" asp-action="Index">Bookings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-controller="Customer" asp-action="Edit">Profile</a>
+                    <a class="nav-link text-dark" asp-controller="Customer" asp-action="Edit">Edit Profile</a>
                 </li>
                 <li class="nav-item">
                     <form class="form-inline" asp-controller="Home" asp-action="Logout"
@@ -92,7 +92,7 @@
 
 		<div class="col">
 			<a class="nav__link" href="/">Home Page</a><br />
-			<a class="nav__link" href="~/home/packages">Packages</a><br />
+			<a class="nav__link" href="~/Order/packages">Packages</a><br />
 			<a class="nav__link" href="~/home/contact">Contact Us</a><br />
 		</div>
 		<div class="col">
