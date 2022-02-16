@@ -27,6 +27,9 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.ProductsInBooking)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TotalPrice)
             </th>
             <th></th>
@@ -62,6 +65,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
+            <td>
+                @foreach (var product in item.ProductsInBooking)
+                {
+                    <p>@product</p>
+                }
+            </td>
+
             <td>
                 @{
                     string formattedPrice = string.Format("{0:C}", item.TotalPrice);

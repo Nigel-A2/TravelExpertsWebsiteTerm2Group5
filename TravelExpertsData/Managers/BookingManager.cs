@@ -36,7 +36,8 @@ namespace TravelExpertsData.Managers
                                           BookingId = bd.booking.BookingId,
                                           BookingNo = bd.booking.BookingNo,
                                           BookingDate = bd.booking.BookingDate,
-                                          TotalPrice = Convert.ToDecimal(bd.details.BasePrice) + Convert.ToDecimal(bd.details.AgencyCommission),
+                                          TotalPrice = Convert.ToDecimal(bd.booking.TravelerCount.GetValueOrDefault(1))
+                                          * Convert.ToDecimal(bd.details.BasePrice) + Convert.ToDecimal(bd.details.AgencyCommission),
                                           TripStart = bd.details.TripStart,
                                           TripEnd = bd.details.TripEnd,
                                           Description = bd.details.Description,
@@ -90,19 +91,30 @@ namespace TravelExpertsData.Managers
                                                  SupplierName = s.SupName
                                              };
 
-           
+
+
             foreach (var booking in bookingWithPackageProducts)
             {
-                CustomerBooking cb = new CustomerBooking();
-                cb.BookingId = booking.BookingId;
-                cb.BookingDate = booking.BookingDate;
-                cb.BookingNo = booking.BookingNo;
-                cb.TripStart = booking.TripStart;
-                cb.TripEnd = booking.TripEnd;
-                cb.TotalPrice = booking.TotalPrice;
-                cb.Description = booking.Description;
-                cb.ProductsInBooking.Add(booking.ProductName + ", " + booking.SupplierName);
-                bookingsView.Add(cb);
+                if(!bookingsView.Exists(b => b.BookingId == booking.BookingId))
+                {
+                    CustomerBooking cb = new CustomerBooking();
+                    cb.BookingId = booking.BookingId;
+                    cb.BookingDate = booking.BookingDate;
+                    cb.BookingNo = booking.BookingNo;
+                    cb.TripStart = booking.TripStart;
+                    cb.TripEnd = booking.TripEnd;
+                    cb.TotalPrice = booking.TotalPrice;
+                    cb.Description = booking.Description;
+                    cb.ProductsInBooking = new List<string>();
+                    cb.ProductsInBooking.Add(booking.ProductName + ", " + booking.SupplierName);
+                    bookingsView.Add(cb);
+                }
+                else
+                {
+                    CustomerBooking cb = bookingsView.Find(b => b.BookingId == booking.BookingId);
+                    cb.ProductsInBooking.Add(booking.ProductName + ", " + booking.SupplierName);
+                }
+                
             }
 
             return bookingsView;

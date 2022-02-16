@@ -151,12 +151,17 @@ namespace TravelExpertsMVC
         {
             try 
             {
+                if(customer.CustBusPhone == null)
+                {
+                    customer.CustBusPhone = customer.CustHomePhone;
+                }
                 // from movies example
                 UserManager.AddCustomer(customer);
-                return RedirectToAction("thankyou");
+                return RedirectToAction("ThankYou");
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine("ERROR: " + e.Message);
                 return View();
             }
         }
