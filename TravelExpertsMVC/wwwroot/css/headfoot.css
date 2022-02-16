@@ -14,8 +14,8 @@
     max-height: 1.5em;
     padding: .22em 0 .22em 3%;
     margin: 0;
-    float:left
-
+    float: left;
+    z-index: 5;
 }
 
 /* Stick to top of screen and styling for nav bar */
@@ -27,7 +27,7 @@ nav {
     width: 100%;
     font-family: 'Fraunces', sans-serif;
     font-weight: 800;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,17 +35,18 @@ nav {
     flex-wrap: wrap;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: .22em 0 .22em .5em;
-    width:63%;
-    align-items: center;
-    justify-content: center;
-    display:none; /* Don't display on mobile unless the below class .show overwrites */
-    flex-direction: column;
-    margin: auto;
-}
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: .22em 0 .22em .5em;
+        width: 63%;
+        align-items: center;
+        justify-content: center;
+        display: none; /* Don't display on mobile unless the below class .show overwrites */
+        flex-direction: column;
+        margin: auto;
+        z-index: 5;
+    }
 
 /* Class added/removed if user clicks hamburger button in mobile view */
 .show {
@@ -53,31 +54,34 @@ nav ul {
 }
 
 
-nav li  {
-    display:inline-block;
+nav li {
+    display: inline-block;
     padding: .22em 25px;
     color: var(--orange);
     letter-spacing: 0.1em;
     text-decoration: none;
     transition: 0.3s;
+    z-index: 5;
 }
 
-nav li a {
-    color: var(--orange);
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    transition:  0.3s;
-}
+    nav li a {
+        color: var(--orange);
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        transition: 0.3s;
+        z-index: 5;
+    }
 
 nav a:hover {
     color: var(--sienna);
 }
 .icon--head {
     font-size: 1.3em;
-    padding:0;
+    padding: 0;
     margin: 0;
     padding-right: .2em;
- }
+    z-index: 5;
+}
 
  /* Button for responsive navigation bar, clicking the hambuger hides or shows the navigation on mobile */
 .hamburger {
@@ -89,7 +93,8 @@ nav a:hover {
     padding-right: 10%;
     display: block;
     transition: 0.3s;
- }
+    z-index: 5;
+}
 
 .hamburger:focus {
     outline: none;
