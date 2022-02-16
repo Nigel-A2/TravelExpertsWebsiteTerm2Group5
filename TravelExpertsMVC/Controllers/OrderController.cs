@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
 using TravelExpertsMVC.Models;
+
+// Author: 
 
 namespace TravelExpertsMVC.Controllers
 {

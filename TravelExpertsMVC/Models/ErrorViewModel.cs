@@ -1,4 +1,4 @@
-using System;
+// Author:
 
 namespace TravelExpertsMVC.Models
 {
