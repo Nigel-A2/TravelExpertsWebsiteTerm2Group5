@@ -23,6 +23,7 @@ namespace TravelExpertsMVC.Data
         public DateTime? PkgStartDate { get; set; }
 
         [Display(Name = "Return Date")]
+        [DisplayFormat(DataFormatString = "{0:MMM dd yyyy")]
         public DateTime? PkgEndDate { get; set; }
 
         [Display(Name = "Description")]
