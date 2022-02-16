@@ -186,21 +186,12 @@
                     <td class="large"><input type="text" asp-for="@Model.CustPostal" class="form-control" /></td>
                     <td class="small"><span id="postal" asp-validation-for="@Model.CustPostal" class="text-danger"></span></td>
 
-                    @*At this point in the project, the agentID will be null when the customer record is created. The customer will be assigned to an agent later
+                    @*At this point in the project, the agentID will be null when the customer record is created. The customer will be assigned to an agent later*@
                         <td class="large"><label for="agent">Did one of our Agents assist you?</label></td>
                         <td class="large">
-                            <select name="agent" onfocus="revealDescription('agent')" onblur="hideDescription('agent')">
-                                <option></option>
-                                foreach AgentId in Model.Agents
-                                {
-                                <option>@Model.Agents.AgtFirstName &&  agent.AgtLastName</option>
-                                }-->
-                                <% agents.forEach((agent)=>{ %>
-
-
-                            </select>
+                            <input type="text" asp-for="@Model.AgentId" class="form-control" name="agent"/>
                         </td>
-                        <td class="small"><span id="agent" style="visibility: hidden;">Select the name of the agent who assited you</span></td>*@
+                        <td class="small"><span id="agent" asp-validation-for="@Model.AgentId" class="text-danger"></span></td>
 
                 </tr>
                 <tr>
