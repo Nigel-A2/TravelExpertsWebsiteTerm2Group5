@@ -4,14 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TravelExpertsData.DBViews;
 using TravelExpertsData.Managers;
+using TravelExpertsMVC.Data;
 
 namespace TravelExpertsMVC.Controllers
 {
-    public class CustomerBookingController : Controller
+
+    public class OrderController : Controller
     {
-        // GET: CustomerBookingController
+        // GET: OrderController
         public ActionResult Index()
         {
             int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
@@ -20,23 +21,23 @@ namespace TravelExpertsMVC.Controllers
                 // non-owner logged in
                 return RedirectToAction("Login", "Home");
             }
-            List<CustomerBooking> bookings = BookingManager.GetCustomerBookings((int)customerID);
-            return View(bookings);
+            Customer customer = OrderManager.GetCustomerInfo((int)customerID);
+            return View(customer);
         }
 
-        // GET: CustomerBookingController/Details/5
+        // GET: OrderController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: CustomerBookingController/Create
+        // GET: OrderController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CustomerBookingController/Create
+        // POST: OrderController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -51,13 +52,13 @@ namespace TravelExpertsMVC.Controllers
             }
         }
 
-        // GET: CustomerBookingController/Edit/5
+        // GET: OrderController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: CustomerBookingController/Edit/5
+        // POST: OrderController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -72,13 +73,13 @@ namespace TravelExpertsMVC.Controllers
             }
         }
 
-        // GET: CustomerBookingController/Delete/5
+        // GET: OrderController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: CustomerBookingController/Delete/5
+        // POST: OrderController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

@@ -40,29 +40,6 @@ namespace TravelExpertsMVC
             ContactViewModel contactView = new ContactViewModel();
             contactView.Agencies = AgentManager.GetAgencies();
             contactView.Agents = AgentManager.GetAgents();
-
-            //return View(contactView);
-            //List<Agent> agents = null;
-            //try
-            //{
-            //    agents = AgentManager.GetAgents();
-            //}
-            //catch (Exception)
-            //{
-            //    TempData["Message"] = "Database connection problem. Try again later.";
-            //    TempData["IsError"] = true;
-            //}
-
-            //List<Agency> agencies = null;
-            //try
-            //{
-            //    agencies = AgentManager.GetAgencies();
-            //}
-            //catch (Exception)
-            //{
-            //    TempData["Message"] = "Database connection problem. Try again later.";
-            //    TempData["IsError"] = true;
-            //}
             return View(contactView);
         }
 
@@ -130,7 +107,15 @@ namespace TravelExpertsMVC
         // GET: HomeController/Order
         public ActionResult Order()
         {
-            return View();
+
+            int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
+            if (customerID == null)
+            {
+                // non-owner logged in
+                return RedirectToAction("Login", "Home");
+            }
+            Customer customer = OrderManager.GetCustomerInfo((int)customerID);
+            return View(customer);
         }
 
         // GET: HomeController/OrderPlaced

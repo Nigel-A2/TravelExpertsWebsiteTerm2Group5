@@ -1,7 +1,7 @@
 ﻿@section head {
-<script src="~/js/readOrders.js"></script>
-<meta name="description" content="Order vacation packages in here: for the customers of the Travel Experts agency">
-<title>Place Your Order - Travel Experts</title>
+    <script src="~/js/readOrders.js"></script>
+    <meta name="description" content="Order vacation packages in here: for the customers of the Travel Experts agency">
+    <title>Place Your Order - Travel Experts</title>
 }
 
 <br />
@@ -16,21 +16,25 @@
         <h2>Order Package</h2>
         <section>
             <form id="orderForm" method="post" action="/orderPlaced">
+
                 <label for="fname">First Name</label>
                 <br />
-                <input type="text" name="fname" value="<%= customer.CustFirstName %>" readonly="readonly" />
+                <input type="text" name="fname" value="@Model.CustFirstName" readonly="readonly" />
                 <span id="firstname" style="visibility: hidden;">Account Firstname</span>
                 <br />
+
                 <label for="lname">Last Name</label>
                 <br />
-                <input type="text" name="lname" value="<%= customer.CustLastName %>" readonly="readonly" />
+                <input type="text" name="lname" value="@Model.CustLastName" readonly="readonly" />
                 <span id="lastname" style="visibility: hidden;">Account Lastname</span>
                 <br />
+
                 <label for="email">Email</label>
                 <br />
-                <input type="email" name="email" value="<%= customer.CustEmail %>" readonly="readonly" />
+                <input type="email" name="email" value="@Model.CustEmail" />
                 <span id="email" style="visibility: hidden;">Account Email</span>
                 <br />
+
                 <label for="package">Select one of our current Packages!</label>
                 <br />
                 <select name="package">
@@ -40,10 +44,23 @@
                     <% }) %>
                 </select>
                 <br />
+
                 <label for="groupSize">How many people will be on the trip?</label>
                 <br />
-                <input type="number" name="groupSize" min="1" max="10" />
+                <select name="groupSize" />
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+
                 <br />
+
                 <label for="type">What kind of trip are you going on?</label>
                 <br />
                 <select name="type">
