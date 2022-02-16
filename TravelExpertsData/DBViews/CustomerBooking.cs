@@ -10,6 +10,7 @@ namespace TravelExpertsData.DBViews
     {
         public int BookingId { get; set; }
         public string BookingNo { get; set; }
+        public int PeopleNo { get; set; }
         public DateTime? BookingDate { get; set; }
         public DateTime? TripStart { get; set; }
         public DateTime? TripEnd { get; set; }

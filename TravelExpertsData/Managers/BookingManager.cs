@@ -35,6 +35,7 @@ namespace TravelExpertsData.Managers
                                       {
                                           BookingId = bd.booking.BookingId,
                                           BookingNo = bd.booking.BookingNo,
+                                          PeopleNo = Convert.ToInt32(bd.booking.TravelerCount),
                                           BookingDate = bd.booking.BookingDate,
                                           TotalPrice = Convert.ToDecimal(bd.booking.TravelerCount.GetValueOrDefault(1))
                                           * Convert.ToDecimal(bd.details.BasePrice) + Convert.ToDecimal(bd.details.AgencyCommission),
@@ -50,6 +51,7 @@ namespace TravelExpertsData.Managers
                 CustomerBooking cb = new CustomerBooking();
                 cb.BookingId = booking.BookingId;
                 cb.BookingDate = booking.BookingDate;
+                cb.PeopleNo = booking.PeopleNo;
                 cb.BookingNo = booking.BookingNo;
                 cb.TripStart = booking.TripStart;
                 cb.TripEnd = booking.TripEnd;
@@ -82,8 +84,10 @@ namespace TravelExpertsData.Managers
                                              {
                                                  BookingId = pd.booking.BookingId,
                                                  BookingNo = pd.booking.BookingNo,
+                                                 PeopleNo = Convert.ToInt32(pd.booking.TravelerCount),
                                                  BookingDate = pd.booking.BookingDate,
-                                                 TotalPrice = Convert.ToDecimal(pd.package.PkgBasePrice) + Convert.ToDecimal(pd.package.PkgAgencyCommission),
+                                                 TotalPrice = Convert.ToDecimal(pd.booking.TravelerCount.GetValueOrDefault(1))
+                                                    * Convert.ToDecimal(pd.package.PkgBasePrice) + Convert.ToDecimal(pd.package.PkgAgencyCommission),
                                                  TripStart = pd.package.PkgStartDate,
                                                  TripEnd = pd.package.PkgEndDate,
                                                  Description = pd.package.PkgDesc,
@@ -100,6 +104,7 @@ namespace TravelExpertsData.Managers
                     CustomerBooking cb = new CustomerBooking();
                     cb.BookingId = booking.BookingId;
                     cb.BookingDate = booking.BookingDate;
+                    cb.PeopleNo = booking.PeopleNo;
                     cb.BookingNo = booking.BookingNo;
                     cb.TripStart = booking.TripStart;
                     cb.TripEnd = booking.TripEnd;

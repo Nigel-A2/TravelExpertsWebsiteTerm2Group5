@@ -43,13 +43,7 @@ namespace TravelExpertsMVC
             return View(contactView);
         }
 
-        // GET: HomeController/Packages
-        public ActionResult Packages()
-        {
-            PackageViewModel packageView = new PackageViewModel();
-            packageView.Packages = PackageManager.GetPackages();
-            return View(packageView);
-        }
+
 
         // GET: HomeController/Login
         public IActionResult Login(string returnUrl = "")

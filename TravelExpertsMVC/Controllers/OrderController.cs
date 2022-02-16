@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
+using TravelExpertsMVC.Models;
 
 namespace TravelExpertsMVC.Controllers
 {
@@ -25,10 +26,19 @@ namespace TravelExpertsMVC.Controllers
             return View(customer);
         }
 
-        // GET: OrderController/Details/5
-        public ActionResult Details(int id)
+        // GET: HomeController/Packages
+        public ActionResult Packages()
         {
-            return View();
+            PackageViewModel packageView = new PackageViewModel();
+            packageView.Packages = PackageManager.GetPackages();
+            return View(packageView);
+        }
+
+        // GET: OrderController/Details/5
+        public ActionResult Details(Package package)
+        {
+            Console.WriteLine("ABCD");
+            return View(package);
         }
 
         // GET: OrderController/Create
@@ -37,18 +47,28 @@ namespace TravelExpertsMVC.Controllers
             return View();
         }
 
-        // POST: OrderController/Create
+        // POST: OrderController/Order
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Order(IFormCollection collection)
         {
+            int numberOfPeople = Convert.ToInt32(collection["people"]);
+            int packageId = Convert.ToInt32(collection["package"]);
+            string tripType = collection["tripType"];
             try
             {
-                return RedirectToAction(nameof(Index));
+                Booking booking = new Booking();
+                booking.BookingDate = DateTime.Now;
+                booking.CustomerId = (int)HttpContext.Session.GetInt32("CurrentCustomer");
+                booking.PackageId = packageId;
+                booking.TripTypeId = tripType;
+                booking.TravelerCount = numberOfPeople;
+                OrderManager.BookPackage(booking);
+                return RedirectToAction("ThankYou", "Home");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Packages");
             }
         }
 

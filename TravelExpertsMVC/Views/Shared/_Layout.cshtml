@@ -30,7 +30,9 @@
 		</button>
         <ul class="nav" id="navul">
             <li><a class="nav__link" href="/">Home</a></li>
-            <li><a class="nav__link" href="~/home/packages">Packages</a></li>
+            <li>
+                <a class="nav-link text-dark" asp-controller="Order" asp-action="Packages">Packages</a>
+            </li>
             <li><a class="nav__link" href="~/home/contact">Contact</a></li>
             @*The layout is not truly responsive*@
             @if (User.Identity.IsAuthenticated)

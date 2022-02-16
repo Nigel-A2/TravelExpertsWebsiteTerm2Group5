@@ -12,7 +12,7 @@
                 @Html.DisplayNameFor(model => model.BookingId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BookingNo)
+                @Html.DisplayNameFor(model => model.PeopleNo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BookingDate)
@@ -42,10 +42,10 @@
                 @Html.DisplayFor(modelItem => item.BookingId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BookingNo)
+                @Html.DisplayFor(modelItem => item.PeopleNo)
             </td>
             <td>
-                @{ 
+                @{
                     string bookingDateValue = item.BookingDate.GetValueOrDefault().ToShortDateString();
                 }
                 @Html.DisplayFor(modelItem => bookingDateValue)

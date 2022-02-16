@@ -36,14 +36,14 @@
 
         @foreach (var packageDetail in Model.Packages)
         {
-            <tr>
-                <td>@packageDetail.PkgName</td>
-                <td>@packageDetail.PkgStartDate.Value.ToString("d")</td>
-                <td>@packageDetail.PkgEndDate.Value.ToString("d")</td>
-                <td>@packageDetail.PkgDesc</td>
-                <td>@packageDetail.PkgBasePrice.ToString("C")</td>
-                <td> <a href="order"><button class="btn"> Order This Package </button></a> </td>
-            </tr>
+    <tr>
+        <td>@packageDetail.PkgName</td>
+        <td>@packageDetail.PkgStartDate.Value.ToString("d")</td>
+        <td>@packageDetail.PkgEndDate.Value.ToString("d")</td>
+        <td>@packageDetail.PkgDesc</td>
+        <td>@packageDetail.PkgBasePrice.ToString("C")</td>
+        <td> @Html.ActionLink("Order", "Details", packageDetail)</td>
+    </tr>
         }
 
     </table>

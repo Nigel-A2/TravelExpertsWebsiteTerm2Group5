@@ -18,5 +18,12 @@ namespace TravelExpertsData.Managers
 
             return customer;
         }
+
+        public static void BookPackage(Booking booking)
+        {
+            TravelExpertsContext db = new TravelExpertsContext();
+            db.Bookings.Add(booking);
+            db.SaveChanges();
+        }
     }
 }
