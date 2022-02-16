@@ -55,7 +55,7 @@ tr:nth-of-type(even) {
 
 	table {
 		display:table;
-		max-width: 85%;
+		max-width: 100%;
 	}
 
 	td {

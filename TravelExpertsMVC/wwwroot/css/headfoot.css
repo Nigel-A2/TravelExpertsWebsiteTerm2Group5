@@ -12,7 +12,7 @@
 /* Logo in Nav Bar */
 .logo {
     max-height: 1.5em;
-    padding: .22em 0 .22em 5%;
+    padding: .22em 0 .22em 3%;
     margin: 0;
     float:left
 
@@ -21,19 +21,18 @@
 /* Stick to top of screen and styling for nav bar */
 nav {
     background-color: var(--charcoal);
-    position:fixed;
-    left:0px;
-    top:0px;
-    width:100%;
-    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    font-family: 'Fraunces', sans-serif;
     font-weight: 800;
     z-index: 2;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: .22em;
     flex-wrap: wrap;
-
 }
 
 nav ul {
@@ -56,7 +55,7 @@ nav ul {
 
 nav li  {
     display:inline-block;
-    padding: .22em 4%;
+    padding: .22em 25px;
     color: var(--orange);
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -111,18 +110,18 @@ footer {
     padding: .3em 15%;
     color: var(--orange);
     letter-spacing: 0.1em;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Fraunces', sans-serif;
     font-weight: 600;
 }
 
-footer a {
-    color: var(--orange);
-    letter-spacing: 0.1em;
-    text-decoration: none;
-	font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    transition: 0.3s;
-}
+    footer a {
+        color: var(--orange);
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        font-family: 'Fraunces', sans-serif;
+        font-weight: 600;
+        transition: 0.3s;
+    }
 
 footer a:hover {
     color: var(--sienna);
