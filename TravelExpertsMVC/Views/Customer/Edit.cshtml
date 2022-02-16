@@ -1,20 +1,21 @@
 ﻿@model TravelExpertsMVC.Data.Customer
 
-@{
-    ViewData["Title"] = "Edit";
+@section head {
+    <link rel="stylesheet" type="text/css" href="~/css/register.css" />
+    <script src="~/js/readform.js"></script>
+    <meta name="description" content="Update your Information">
+    <title>Update - Travel Experts</title>
 }
-
-<h4>Edit personal info</h4>
 
 <!--<div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">-->
-            @*<div class="form-group">
-                <label asp-for="CustomerId" class="control-label"></label>
-                <input asp-for="CustomerId" class="form-control" value="@Model.CustomerId"/>
-                <span asp-validation-for="CustomerId" class="text-danger"></span>
-            </div>*@
-            <!--<div class="form-group">
+@*<div class="form-group">
+        <label asp-for="CustomerId" class="control-label"></label>
+        <input asp-for="CustomerId" class="form-control" value="@Model.CustomerId"/>
+        <span asp-validation-for="CustomerId" class="text-danger"></span>
+    </div>*@
+<!--<div class="form-group">
                 <label asp-for="CustFirstName" class="control-label"></label>
                 <input asp-for="CustFirstName" class="form-control" value="@Model.CustFirstName"/>
                 <span asp-validation-for="CustFirstName" class="text-danger"></span>
@@ -92,70 +93,73 @@
         <form asp-action="Edit" id="edit-form" method="post">
             <table class="table">
                 <tr>
-                    <td class="large"><label asp-for="CustFirstName" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustFirstName" class="control-label" style="width:500px;">First Name:</label></td>
                     <td class="large"><input asp-for="CustFirstName" class="form-control" value="@Model.CustFirstName" /></td>
-                    <td class="small"><span asp-validation-for="CustFirstName" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustFirstName" class="text-danger"></span></td>*@
 
-                    <td class="large"><label asp-for="CustLastName" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustLastName" class="control-label">Last Name:</label></td>
                     <td class="large"><input asp-for="CustLastName" class="form-control" value="@Model.CustLastName" /></td>
-                    <td class="small"><span asp-validation-for="CustLastName" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustLastName" class="text-danger"></span></td>*@
                 </tr>
                 <tr>
-                    <td class="large"><label asp-for="CustPassword" class="control-label"></label></td>
-                    <td class="large"><input asp-for="CustPassword" class="form-control" value="a" /></td>
-                    <td class="small"><span asp-validation-for="CustPassword" class="text-danger"></span></td>
+                    <td class="large"><label asp-for="CustPassword" class="control-label">Password:</label></td>
+                    <td class="large"><input type="password" asp-for="CustPassword" class="form-control" value="@Model.CustPassword" /></td>
 
-                    <td class="large"><label asp-for="CustHomePhone" class="control-label"></label></td>
+
+                    <td class="large"><label asp-for="CustHomePhone" class="control-label">Home Phone:</label></td>
                     <td class="large"><input asp-for="CustHomePhone" class="form-control" value="@Model.CustHomePhone" /></td>
-                    <td class="small"><span asp-validation-for="CustHomePhone" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustHomePhone" class="text-danger"></span></td>*@
                 </tr>
 
                 <tr>
-                    <td class="large"><label asp-for="ConfirmPassword" class="control-label"></label></td>
-                    <td class="large"><input asp-for="ConfirmPassword" class="form-control" value="a" /></td>
-                    <td class="small"><span asp-validation-for="ConfirmPassword" class="text-danger"></span></td>
+                    <td class="large"><label asp-for="ConfirmPassword" class="control-label">Confirm:</label></td>
+                    <td class="large"><input type="password" asp-for="ConfirmPassword" class="form-control" value="@Model.CustPassword" /></td>
                     @*The assignment said that business phone needs to be optional*@
-                    <td class="large"><label asp-for="CustBusPhone" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustBusPhone" class="control-label">Business Phone:</label></td>
                     <td class="large"><input asp-for="CustBusPhone" class="form-control" value="@Model.CustBusPhone" /></td>
-                    <td class="small"><span asp-validation-for="CustBusPhone" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustBusPhone" class="text-danger"></span></td>*@
                     @*The assignment said that email needs to be optional*@
                 </tr>
                 <tr>
-                    <td class="large"><label asp-for="CustEmail" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustEmail" class="control-label">Email:</label></td>
                     <td class="large"><input asp-for="CustEmail" class="form-control" value="@Model.CustEmail" /></td>
-                    <td class="small"><span asp-validation-for="CustEmail" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustEmail" class="text-danger"></span></td>*@
                 </tr>
 
                 <tr><td style="height: 2em;"></td></tr>
                 <tr>
-                    <td class="large"><label asp-for="CustAddress" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustAddress" class="control-label">Address:</label></td>
                     <td class="large"><input asp-for="CustAddress" class="form-control" value="@Model.CustAddress" /></td>
-                    <td class="small"><span asp-validation-for="CustAddress" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustAddress" class="text-danger"></span></td>*@
 
-                    <td class="large"><label asp-for="CustCity" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustCity" class="control-label">City:</label></td>
                     <td class="large"><input asp-for="CustCity" class="form-control" value="@Model.CustCity" /></td>
-                    <td class="small"><span asp-validation-for="CustCity" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustCity" class="text-danger"></span></td>*@
                 </tr>
                 <tr>
-                    <td class="large"><label asp-for="CustProv" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustProv" class="control-label">Province:</label></td>
                     <td class="large"><input asp-for="CustProv" class="form-control" value="@Model.CustProv" /></td>
-                    <td class="small"><span asp-validation-for="CustProv" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustProv" class="text-danger"></span></td>*@
 
-                    <td class="large"><label asp-for="CustCountry" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustCountry" class="control-label">Country:</label></td>
                     <td class="large"><input asp-for="CustCountry" class="form-control" value="@Model.CustCountry" /></td>
-                    <td class="small"><span asp-validation-for="CustCountry" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustCountry" class="text-danger"></span></td>*@
                 </tr>
                 <tr>
-                    <td class="large"><label asp-for="CustPostal" class="control-label"></label></td>
+                    <td class="large"><label asp-for="CustPostal" class="control-label">Postal:</label></td>
                     <td class="large"><input asp-for="CustPostal" class="form-control" value="@Model.CustPostal" /></td>
-                    <td class="small"><span asp-validation-for="CustPostal" class="text-danger"></span></td>
+                    @*<td class="small"><span asp-validation-for="CustPostal" class="text-danger"></span></td>*@
+                </tr>
+                <tr>
+                    <td class="small"><span asp-validation-for="CustPassword" class="text-danger"></span></td>
+                    <td class="small"><span asp-validation-for="ConfirmPassword" class="text-danger"></span></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="large"><input type="reset" value="Clear" class="formsubmit btn" onclick="return confirm('Are you sure you want clear all values from all fields?')" /></td>
+                    @*<td class="large"><input type="reset" value="Clear" class="formsubmit btn" onclick="return confirm('Are you sure you want clear all values from all fields?')" /></td>*@
                     <td class="large"></td>
                     <td></td>
-                    <td><input type="submit" value="Send" class="formsubmit btn" onclick="return validate()" /></td>
+                    <td><input type="submit" value="Update" class="formsubmit btn" onclick="return validate()" /></td>
                 </tr>
             </table>
         </form>
