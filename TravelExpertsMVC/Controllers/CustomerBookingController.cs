@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TravelExpertsData.DBViews;
 using TravelExpertsData.Managers;
 
-//Authors: 
+//Authors: Filip, 
 
 namespace TravelExpertsMVC.Controllers
 {

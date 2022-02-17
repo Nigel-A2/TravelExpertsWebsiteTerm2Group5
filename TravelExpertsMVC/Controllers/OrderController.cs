@@ -5,7 +5,7 @@ using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
 using TravelExpertsMVC.Models;
 
-// Author: 
+// Author: William
 
 namespace TravelExpertsMVC.Controllers
 {

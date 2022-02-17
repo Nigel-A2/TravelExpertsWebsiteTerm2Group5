@@ -1,5 +1,3 @@
-// Author:
-
 namespace TravelExpertsMVC.Models
 {
 	public class ErrorViewModel

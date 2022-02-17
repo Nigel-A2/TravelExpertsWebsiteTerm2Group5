@@ -2,7 +2,7 @@
 using System.Linq;
 using TravelExpertsMVC.Data;
 
-// Authors: Nigel, Filip, ?
+// Authors: Nigel, Filip
 namespace TravelExpertsData.Managers
 {
 	public class UserManager

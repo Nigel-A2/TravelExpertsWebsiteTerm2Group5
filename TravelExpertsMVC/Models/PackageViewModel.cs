@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using TravelExpertsMVC.Data;
 
-// Author:
+// Author: William?
 
 namespace TravelExpertsMVC.Models
 {

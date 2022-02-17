@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
 
-// Authors:
+// Authors: Filip,
 
 namespace TravelExpertsMVC.Controllers
 {
