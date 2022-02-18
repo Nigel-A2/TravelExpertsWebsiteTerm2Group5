@@ -16,7 +16,7 @@ namespace TravelExpertsMVC.Controllers
             int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
             if (customerID == null)
             {
-                // non-owner logged in
+                // no logged in user
                 return RedirectToAction("Login", "Home");
             }
             List<CustomerBooking> bookings = BookingManager.GetCustomerBookings((int)customerID);
@@ -46,7 +46,7 @@ namespace TravelExpertsMVC.Controllers
             }
             catch
             {
-                return View();
+                return RedirectToAction("Error", "Shared");
             }
         }
 

@@ -5,7 +5,7 @@ using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
 using TravelExpertsMVC.Models;
 
-// Author: William
+// Author: William, Filip
 
 namespace TravelExpertsMVC.Controllers
 {
@@ -67,7 +67,7 @@ namespace TravelExpertsMVC.Controllers
             }
             catch
             {
-                return RedirectToAction("Packages");
+                return RedirectToAction("Error", "Shared");
             }
         }
 

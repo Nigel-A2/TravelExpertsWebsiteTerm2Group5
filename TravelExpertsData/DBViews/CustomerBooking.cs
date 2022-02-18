@@ -4,8 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//author: Filip Florek
 namespace TravelExpertsData.DBViews
 {
+    /*
+     Class conatins all necesary info about booking from customers perspective,
+        which is displayed on the website
+     
+     */
     public class CustomerBooking
     {
         public int BookingId { get; set; }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelExpertsMVC.Data;
 
+//Author: Filip Florek
 namespace TravelExpertsData.Managers
 {
     public static class PackageManager
