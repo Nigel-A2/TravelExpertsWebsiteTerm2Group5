@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TravelExpertsMVC.Data;
 
+// Authors: Nigel, Filip
 namespace TravelExpertsData.Managers
 {
 	public class UserManager
