@@ -37,7 +37,7 @@
                 <span id="email" style="visibility: hidden;">Account Email</span>
                 <br />
 
-                <label for="package">Select one of our current Packages!</label>
+                @*<label for="package">Select one of our current Packages!</label>
                 <br />
                 <select name="package">
                     <option></option>
@@ -45,11 +45,11 @@
                     <option><%= tripPackage.PackageId %> - <%= tripPackage.PkgName %></option>
                     <% }) %>
                 </select>
-                <br />
+                <br />*@
 
                 <label for="groupSize">How many people will be on the trip?</label>
                 <br />
-                <select name="groupSize" />
+                <select name="groupSize">
                 <option value=1>1</option>
                 <option value=2>2</option>
                 <option value=3>3</option>
@@ -60,6 +60,7 @@
                 <option value=8>8</option>
                 <option value=9>9</option>
                 <option value=10>10</option>
+                </select>
 
                 <br />
 
@@ -71,6 +72,7 @@
                     <option> Group </option>
                     <option> Leisure </option>
                 </select>
+
                 <input type="submit" value="Send" class="formsubmit" onclick="return validate()" />
                 <input type="reset" value="Clear" class="formsubmit" onclick="return confirm('Are you sure you want clear all values from all fields?')" />
             </form>
