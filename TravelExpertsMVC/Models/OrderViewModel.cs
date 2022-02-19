@@ -7,7 +7,6 @@ using TravelExpertsData.DBViews;
 using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
 
-using Microsoft.AspNetCore.Http;
 
 
 namespace TravelExpertsMVC.Models

@@ -4,12 +4,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using TravelExpertsData.Managers;
 using TravelExpertsMVC.Data;
 using TravelExpertsMVC.Models;
+
+// Authors: Nigel, Filip, Justin, William
 
 namespace TravelExpertsMVC
 {

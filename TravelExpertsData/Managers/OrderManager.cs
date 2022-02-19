@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelExpertsMVC.Data;
 
+//Author: Filip
 namespace TravelExpertsData.Managers
 {
     public static class OrderManager
     {
+        //returns customer info based on given id
         public static Customer GetCustomerInfo(int customerId)
         {
 
@@ -19,6 +21,7 @@ namespace TravelExpertsData.Managers
             return customer;
         }
 
+        //adds booking to db
         public static void BookPackage(Booking booking)
         {
             TravelExpertsContext db = new TravelExpertsContext();

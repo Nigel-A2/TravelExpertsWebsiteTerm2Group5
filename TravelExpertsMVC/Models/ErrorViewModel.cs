@@ -1,5 +1,3 @@
-using System;
-
 namespace TravelExpertsMVC.Models
 {
 	public class ErrorViewModel

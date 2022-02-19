@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TravelExpertsData.DBViews;
 using TravelExpertsData.Managers;
+
+//Authors: Filip, 
 
 namespace TravelExpertsMVC.Controllers
 {
@@ -17,7 +16,7 @@ namespace TravelExpertsMVC.Controllers
             int? customerID = HttpContext.Session.GetInt32("CurrentCustomer");
             if (customerID == null)
             {
-                // non-owner logged in
+                // no logged in user
                 return RedirectToAction("Login", "Home");
             }
             List<CustomerBooking> bookings = BookingManager.GetCustomerBookings((int)customerID);
@@ -47,7 +46,7 @@ namespace TravelExpertsMVC.Controllers
             }
             catch
             {
-                return View();
+                return RedirectToAction("Error", "Shared");
             }
         }
 

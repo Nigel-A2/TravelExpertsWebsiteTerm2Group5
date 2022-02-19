@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+
+@*Authors: Nigel, Justin, William, Filip*@
+
 <html lang="en">
 <head>
     <!--Montserrat and Roboto - Google Fonts -->
@@ -34,7 +37,7 @@
                 <a class="nav-link text-dark" asp-controller="Order" asp-action="Packages">Packages</a>
             </li>
             <li><a class="nav__link" href="~/home/contact">Contact</a></li>
-            @*The layout is not truly responsive*@
+           
             @if (User.Identity.IsAuthenticated)
             {
                 <li class="nav-item">

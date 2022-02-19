@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 using TravelExpertsData.DBViews;
 using TravelExpertsMVC.Data;
 
+//Author: Filip Florek
 namespace TravelExpertsData.Managers
 {
     public class BookingManager
     {
 
+        /*
+         Booking details can be obtained in two ways 
+        - from bookingDetails table if packageId is not provided in booking
+            (all bookings from initial database)
+        - from package table, because according to requirements customer books 
+            a package, not single product
+         */
         public static List<CustomerBooking> GetCustomerBookings(int customerId)
         {
             List<CustomerBooking> bookingsView = new List<CustomerBooking>();
