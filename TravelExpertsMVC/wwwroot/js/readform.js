@@ -6,6 +6,8 @@
  * 2021-12-01
  */
 
+/*This was written by Daniel for term 1 project*/
+
 //Pre-defined regex expressions for value validation
 var postalCheck = /(^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$)|(^\d{5}-\d{4}$)|(^\d{5}$)/
 var phoneCheck = /(^\d{10}$)|(^\(\d{3}\)-\d{3}-\d{4}$)|(^\d{3}-\d{3}-\d{4}$)/

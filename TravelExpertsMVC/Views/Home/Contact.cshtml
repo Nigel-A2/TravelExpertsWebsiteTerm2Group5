@@ -1,17 +1,17 @@
 ﻿@model ContactViewModel
 @*William Rust -- February 13, 2022*@
 
-
 @section head {
     <meta name="description" content="Contact Information of the Travel Experts Agency & Individual Travel Agents">
     <title>Contact Us - Travel Experts</title>
     <link rel="stylesheet" href="~/css/contact.css" />
 }
+
 <br>
-<div class="main-content" style="min-height: 5vh !important;">
+<div class="main-content" style="min-height: 1vh">
     <div class="grid">
         <h3>About Us...</h3>
-        <!--A breif introduction about the client with two links , one directing to 404 page-->
+        <!--A breif introduction about the client with two links , one directing to 404 page intentionally-->
         <p class="para">
             We are one of the leading travel agencies in Alberta. At Travel Experts, we take pride
             in providing our clients with customized services right from planning to conclusion of your trips
@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="main-content">
+<div class="main-content" style="min-height: 1vh">
     <table>
         <tr><th colspan="3">Get in Touch - Calagary</th></tr>
         @foreach (var agent in Model.Agents)
