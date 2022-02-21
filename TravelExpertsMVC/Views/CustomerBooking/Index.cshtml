@@ -20,43 +20,45 @@
                 <th>Trip Dates</th>
                 <th>Description</th>
                 <th>Products</th>
+                <th>Booking Price</th>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.BookingId)</td>
-                    <td>@Html.DisplayFor(modelItem => item.PeopleNo)</td>
-                    <td>
-                        @{
-                            string bookingDateValue = item.BookingDate.GetValueOrDefault().ToShortDateString();
-                        }
-                        @Html.DisplayFor(modelItem => bookingDateValue)
-                    </td>
-                    <td>
-                        @{
-                            string startDateValue = item.TripStart.GetValueOrDefault().ToShortDateString();
-                        }
-                        @Html.DisplayFor(modelItem => startDateValue) to
-                        @{
-                            string endDateValue = item.TripEnd.GetValueOrDefault().ToShortDateString();
-                        }
-                        @Html.DisplayFor(modelItem => endDateValue)
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.BookingId)</td>
+            <td>@Html.DisplayFor(modelItem => item.PeopleNo)</td>
+            <td>
+                @{
+                    string bookingDateValue = item.BookingDate.GetValueOrDefault().ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => bookingDateValue)
+            </td>
+            <td>
+                @{
+                    string startDateValue = item.TripStart.GetValueOrDefault().ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => startDateValue) to
+                @{
+                    string endDateValue = item.TripEnd.GetValueOrDefault().ToShortDateString();
+                }
+                @Html.DisplayFor(modelItem => endDateValue)
 
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                    <td>
-                        @foreach (var product in item.ProductsInBooking)
-                        {
-                            <p>@product</p>
-                        }
-                    </td>
-                </tr>
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>
+                @foreach (var product in item.ProductsInBooking)
+                {
+                    <p>@product</p>
+                }
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.TotalPrice)</td>
+        </tr>
             }
         </table>
     </div>
     <h2>
-        Price of all bookings:
+        Total price of all bookings:
         @{
             decimal totalCost = 0m;
             foreach (var item in Model)
