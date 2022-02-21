@@ -15,10 +15,6 @@ input, button, select {
     height: 1.3em;
 }
 
-span {
-    /*display: none; Disable showing span - didn't delete in case we wanted to bring back */
-}
-
 table {
     border: 0;
     margin:auto;

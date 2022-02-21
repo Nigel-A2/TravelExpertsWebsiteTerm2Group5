@@ -10,63 +10,14 @@
 @*Author: Filip*@
 <h1>@Html.DisplayFor(model => model.PkgName)</h1>
 <div class="main-content" style="min-height:63vh !important">
-    @*<dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PackageId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PackageId)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PkgName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PkgName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PkgStartDate)
-            </dt>
-            <dd class="col-sm-10">
-                @{
-                    string startDateValue = Model.PkgStartDate.GetValueOrDefault().ToShortDateString();
-                }
-                @Html.DisplayFor(model => startDateValue)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PkgEndDate)
-            </dt>
-            <dd class="col-sm-10">
-                @{
-                    string endDateValue = Model.PkgEndDate.GetValueOrDefault().ToShortDateString();
-                }
-                @Html.DisplayFor(model => endDateValue)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PkgDesc)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PkgDesc)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PkgBasePrice)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PkgBasePrice)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PkgAgencyCommission)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PkgAgencyCommission)
-            </dd>
-        </dl>*@
+
     <form asp-action="Order">
         <table class="table">
             <tr>
-                <td class="large" colspan="2">@Html.DisplayFor(model => model.PkgDesc)</td>
+                <td colspan="2">@Html.DisplayFor(model => model.PkgDesc)</td>
             </tr>
             <tr>
-                <td class="large">Departure:</td>
+                <td>Departure:</td>
                 <td>
                     @{
                         string startDateValue = Model.PkgStartDate.GetValueOrDefault().ToShortDateString();
@@ -75,7 +26,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="large">Return:</td>
+                <td>Return:</td>
                 <td>
                     @{
                         string endDateValue = Model.PkgEndDate.GetValueOrDefault().ToShortDateString();
@@ -119,7 +70,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="Order package" class="btn btn-primary" style="width:100%;" />
+                    <input type="submit" value="Order package" class="btn" style="width:100%;" />
                 </td>
             </tr>
             <tr style="display:none">
