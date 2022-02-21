@@ -24,6 +24,10 @@ namespace TravelExpertsData.Managers
 			return user;
 		}
 
+		/// <summary>
+		/// add customer to db
+		/// </summary>
+		/// <param name="customer">customer to be added</param>
 		public static void AddCustomer(Customer customer)
 		{
 			TravelExpertsContext db = new TravelExpertsContext();
@@ -31,6 +35,11 @@ namespace TravelExpertsData.Managers
 			db.SaveChanges();
 		}
 
+		/// <summary>
+		/// get single customer by ID
+		/// </summary>
+		/// <param name="customerID">id to find</param>
+		/// <returns>customer matching id or null</returns>
 		public static Customer GetCustomer(int customerID)
         {
 			TravelExpertsContext db = new TravelExpertsContext();
@@ -38,6 +47,12 @@ namespace TravelExpertsData.Managers
 			return customer;
 		}
 
+
+		/// <summary>
+		/// update customer to db
+		/// </summary>
+		/// <param name="customer">customer to update</param>
+		/// <returns>updated customer</returns>
         public static Customer UpdateCustomer(Customer customer)
         {
 			TravelExpertsContext db = new TravelExpertsContext();
@@ -56,7 +71,7 @@ namespace TravelExpertsData.Managers
 				db.SaveChanges();
 			} catch (Exception exception)
 			{
-				Console.WriteLine("Erro: " + exception.Message);
+				Console.WriteLine("Error: " + exception.Message);
             }
 			
 

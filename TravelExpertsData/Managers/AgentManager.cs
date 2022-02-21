@@ -2,7 +2,7 @@
 using System.Linq;
 using TravelExpertsMVC.Data;
 
-//Author: 
+//Author: Justin
 
 namespace TravelExpertsData.Managers
 {
@@ -19,6 +19,11 @@ namespace TravelExpertsData.Managers
             return db.Agents.ToList();
         }
 
+
+        /// <summary>
+        /// get list of agencies from DB
+        /// </summary>
+        /// <returns>list of agencies</returns>
         public static List<Agency> GetAgencies()
         {
             TravelExpertsContext db = new TravelExpertsContext();

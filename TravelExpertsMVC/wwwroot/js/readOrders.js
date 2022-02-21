@@ -6,6 +6,8 @@
  * 2021-12-04
  */
 
+/*This was written by Daniel for term 1 project*/
+
 // Function to validate the order form.
 // Ensures that all fields are filled
 function validate(){

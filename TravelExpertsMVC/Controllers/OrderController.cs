@@ -36,14 +36,7 @@ namespace TravelExpertsMVC.Controllers
         // GET: OrderController/Details/5
         public ActionResult Details(Package package)
         {
-            Console.WriteLine("ABCD");
             return View(package);
-        }
-
-        // GET: OrderController/Create
-        public ActionResult Create()
-        {
-            return View();
         }
 
         // POST: OrderController/Order
@@ -68,48 +61,6 @@ namespace TravelExpertsMVC.Controllers
             catch
             {
                 return RedirectToAction("Error", "Shared");
-            }
-        }
-
-        // GET: OrderController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: OrderController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: OrderController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: OrderController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
             }
         }
     }

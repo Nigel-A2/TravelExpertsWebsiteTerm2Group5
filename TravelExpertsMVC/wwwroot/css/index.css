@@ -21,7 +21,9 @@
     --orange-accent: #efb281;
     --sienna: #878787ff;
     --sienna-trans: #e878787e6;
+
     /* Temparary way to change colors, Comment out defult and Uncomment any other group of colors */
+
     /* Christmas Tree */
     /* --charcoal:  #418052;
     --green: #CFCFCF;
@@ -31,6 +33,7 @@
     --orange-trans: #FFFFFFE6;
     --sienna: #C7FBFF;
     --sienna-trans: #C7FBFFE6; */
+
     /* Dark Theme Mono */
     /* --charcoal: #494949;
     --green: #a1a1a1;
@@ -40,6 +43,7 @@
     --orange-trans: #5a5a5ae6;
     --sienna: #5a5a5a;
     --sienna-trans: #c2c2c2e6; */
+
     /* Blue */
     /* --charcoal: #2c244b;
     --green: #574C75;

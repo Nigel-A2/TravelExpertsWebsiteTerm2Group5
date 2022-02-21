@@ -8,7 +8,8 @@
  */
 
 /*  Co-author: Justin Molnar
- Added a second export to be used on customerhome */
+ Added a second export to be used on customerhome 
+ This was written by Daniel for term 1 project */
 
  const dayjs = require("dayjs");
  const advancedFormat = require('dayjs/plugin/advancedFormat');
