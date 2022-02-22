@@ -60,6 +60,9 @@ namespace TravelExpertsData.Managers
             try
             {
 				var customerToUpdate = db.Customers.SingleOrDefault(c => c.CustomerId == customer.CustomerId);
+				customerToUpdate.CustFirstName = customer.CustFirstName;
+				customerToUpdate.CustLastName = customer.CustLastName;
+				customerToUpdate.CustPassword = customer.CustPassword;
 				customerToUpdate.CustEmail = customer.CustEmail;
 				customerToUpdate.CustAddress = customer.CustAddress;
 				customerToUpdate.CustBusPhone = customer.CustBusPhone;
