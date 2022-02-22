@@ -1,5 +1,17 @@
+USE TravelExperts
+
 ALTER TABLE Customers
-  ADD CustPassword VARCHAR(20) NOT NULL DEFAULT('password123')
+ADD CustPassword VARCHAR (20)
+
+ALTER TABLE Customers
+ADD CONSTRAINT DefaultPassword
+DEFAULT 'password123' FOR CustPassword
+
+ALTER TABLE Customers
+ALTER COLUMN CustPassword VARCHAR(20) NOT NULL
+
+--you can right click a column and click modify to add the new column if this does not work
+
 
 ALTER TABLE Products_Suppliers
 DROP CONSTRAINT Products_Suppliers_FK00;
@@ -23,7 +35,16 @@ ADD CONSTRAINT Products_Suppliers_FK01
 DROP CONSTRAINT Packages_Products_Supplie_FK01;
 
 ALTER TABLE Packages_Products_Suppliers
-ADD CONSTRAINT Packages_Products_Supplie_FK01
+ADD CONSTRAINT Packages_Products_Suppliers_FK01
     FOREIGN KEY (ProductSupplierId)
     REFERENCES Products_Suppliers(ProductSupplierId)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+    
+ALTER TABLE Packages_Products_Suppliers
+DROP CONSTRAINT Packages_Products_Supplie_FK00;
+
+ALTER TABLE Packages_Products_Suppliers
+ADD CONSTRAINT Packages_Products_Suppliers_FK00
+    FOREIGN KEY (PackageId)
+    REFERENCES Packages(PackageId)
     ON DELETE CASCADE ON UPDATE CASCADE;
